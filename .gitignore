@@ -1,0 +1,5 @@
+# Files to be ignored by git. Update list if needed.
+
+/.idea
+*.iml
+/target
