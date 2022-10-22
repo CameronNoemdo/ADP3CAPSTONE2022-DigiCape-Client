@@ -11,7 +11,7 @@ Online Education
 
 ## Built with:
 
-- [HTML 5](https://www.java.com/en/) - Object Orientated Programming Language
+- [Java](https://www.java.com/en/) - Object Orientated Programming Language
 - [Springboot](https://spring.io/projects/spring-boot) - Application Framework
 
 
