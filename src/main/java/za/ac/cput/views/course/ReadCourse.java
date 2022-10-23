@@ -1,15 +1,7 @@
 package za.ac.cput.views.course;
 
-/*
-CreateCourse.java
-Java Swing class for CreateCourse GUI window
-Author: Mathew Fortuin (219069514)
-Date: 20/10/2022
- */
-
 import za.ac.cput.client.CourseHttpClient;
 import za.ac.cput.entity.Course;
-import za.ac.cput.factory.CourseFactory;
 import za.ac.cput.views.CourseMenu;
 
 import javax.swing.*;
@@ -17,40 +9,46 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class CreateCourse extends JFrame implements ActionListener {
+/*
+ReadCourse.java
+Java Swing class for ReadCourse GUI window
+Author: Mathew Fortuin (219069514)
+Date: 20/10/2022
+ */
+public class ReadCourse extends JFrame implements ActionListener {
 
     //Attributes
     private JPanel northPanel, centerPanel, southPanel, radioPanel;
-    private JLabel lblHeading, lblCourseId, lblCourseId1, lblCourseName, lblCourseDescription, lblDepartmentId, lblDate, lblDate1;
-    private  JTextField  txtCourseName, txtCourseDescription, txtDepartmentId;
-    private JButton btnCreate, btnExit;
+    private JLabel lblHeading, lblCourseId, lblCourseName, lblCourseDescription, lblDepartmentId, lblDate;
+    private JLabel lblCourseName1, lblCourseDescription1, lblDepartmentId1, lblDate1;
+    private JTextField txtCourseId;
+    private JButton btnRead, btnClear, btnExit;
     private Font ftHeading, ftText, ftTextBold;
-    private JLabel emptySpace1, emptySpace2, emptySpace3, emptySpace4, emptySpace5, emptySpace6, emptySpace7, emptySpace8, emptySpace9, emptySpace10, emptySpace11;
+    private JLabel emptySpace1, emptySpace2, emptySpace3, emptySpace4, emptySpace5, emptySpace6, emptySpace7, emptySpace8, emptySpace9, emptySpace10, emptySpace11, emptySpace12;
 
-    public CreateCourse()
+    public ReadCourse()
     {
-        super("Create Course Screen version: 1.0 by Mathew Fortuin");
+        super("Read Course Screen version: 1.0 by Mathew Fortuin");
 
         northPanel = new JPanel();
         centerPanel = new JPanel();
         southPanel = new JPanel();
-        radioPanel = new JPanel();
 
-        lblHeading = new JLabel("Create Course", SwingConstants.CENTER);
+        lblHeading = new JLabel("Read Course", SwingConstants.CENTER);
         lblCourseId = new JLabel("Course ID: ", SwingConstants.RIGHT);
         lblCourseName = new JLabel("Course Name: ", SwingConstants.RIGHT);
         lblCourseDescription = new JLabel("Course Description: ", SwingConstants.RIGHT);
         lblDepartmentId = new JLabel("Department ID: ", SwingConstants.RIGHT);
         lblDate = new JLabel("Date: ", SwingConstants.RIGHT);
 
+        txtCourseId = new JTextField();
+        lblCourseName1 = new JLabel("");
+        lblCourseDescription1 = new JLabel("");
+        lblDepartmentId1 = new JLabel("");
+        lblDate1 = new JLabel("");
 
-        lblCourseId1 = new JLabel("Auto Generated");
-        txtCourseName = new JTextField();
-        txtCourseDescription = new JTextField();
-        txtDepartmentId = new JTextField();
-        lblDate1 = new JLabel("Auto Generated");
-
-        btnCreate = new JButton("Create");
+        btnRead = new JButton("Read");
+        btnClear = new JButton("Clear");
         btnExit = new JButton("Exit");
 
         ftHeading = new Font("Segoe UI Black", Font.PLAIN, 28);
@@ -68,6 +66,7 @@ public class CreateCourse extends JFrame implements ActionListener {
         emptySpace9 = new JLabel();
         emptySpace10 = new JLabel();
         emptySpace11 = new JLabel();
+        emptySpace12 = new JLabel();
     }
 
     public void setGui()
@@ -75,7 +74,7 @@ public class CreateCourse extends JFrame implements ActionListener {
         //Add Gridlayout to panels
         northPanel.setLayout(new FlowLayout());
         centerPanel.setLayout(new GridLayout(7,3));
-        southPanel.setLayout(new GridLayout(2,2));
+        southPanel.setLayout(new GridLayout(2,3));
 
         //Set font
         lblHeading.setFont(ftHeading);
@@ -86,40 +85,33 @@ public class CreateCourse extends JFrame implements ActionListener {
         lblCourseDescription.setFont(ftTextBold);
         lblDepartmentId.setFont(ftTextBold);
         lblDate.setFont(ftTextBold);
-        btnCreate.setFont(ftTextBold);
+        btnRead.setFont(ftTextBold);
         btnExit.setFont(ftTextBold);
 
-        lblCourseId1.setFont(ftText);
+        txtCourseId.setFont(ftText);
+        lblCourseName1.setFont(ftText);
+        lblCourseDescription1.setFont(ftText);
+        lblDepartmentId1.setFont(ftText);
         lblDate1.setFont(ftText);
-        txtCourseName.setFont(ftText);
-        txtCourseDescription.setFont(ftText);
-        txtDepartmentId.setFont(ftText);
-
-        //Formatting buttons
-        btnCreate.setBackground(Color.BLACK);
-        btnCreate.setForeground(Color.WHITE);
-
-        btnExit.setBackground(Color.BLACK);
-        btnExit.setForeground(Color.WHITE);
 
         //Add components to panels
         northPanel.add(lblHeading);
         //northPanel.setBackground(Color.decode("#4863A0"));
 
         centerPanel.add(lblCourseId);
-        centerPanel.add(lblCourseId1);
+        centerPanel.add(txtCourseId);
         centerPanel.add(emptySpace1);
 
         centerPanel.add(lblCourseName);
-        centerPanel.add(txtCourseName);
+        centerPanel.add(lblCourseName1);
         centerPanel.add(emptySpace2);
 
         centerPanel.add(lblCourseDescription);
-        centerPanel.add(txtCourseDescription);
+        centerPanel.add(lblCourseDescription1);
         centerPanel.add(emptySpace3);
 
         centerPanel.add(lblDepartmentId);
-        centerPanel.add(txtDepartmentId);
+        centerPanel.add(lblDepartmentId1);
         centerPanel.add(emptySpace4);
 
         centerPanel.add(lblDate);
@@ -130,7 +122,9 @@ public class CreateCourse extends JFrame implements ActionListener {
 
         southPanel.add(emptySpace10);
         southPanel.add(emptySpace11);
-        southPanel.add(btnCreate);
+        southPanel.add(emptySpace12);
+        southPanel.add(btnRead);
+        southPanel.add(btnClear);
         southPanel.add(btnExit);
         //southPanel.setBackground(Color.decode("#CECECE"));
 
@@ -140,7 +134,8 @@ public class CreateCourse extends JFrame implements ActionListener {
         this.add(southPanel, BorderLayout.SOUTH);
 
         //Add action listener to buttons | mouse listener to hyperlink
-        btnCreate.addActionListener(this);
+        btnRead.addActionListener(this);
+        btnClear.addActionListener(this);
         btnExit.addActionListener(this);
 
         //Frame
@@ -153,38 +148,41 @@ public class CreateCourse extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
-        if(e.getActionCommand().equals("Create"))
+        if(e.getActionCommand().equals("Read"))
         {
-            String courseName =(txtCourseName.getText().trim().toString());
-            String courseDescription = (txtCourseDescription.getText().trim().toString());
-            String departmentId = (txtDepartmentId.getText().trim().toString());
+            int courseId = Integer.parseInt(txtCourseId.getText().trim().toString());
 
-
-            if(courseName.equals("")|| courseDescription.equals("")|| departmentId.equals(""))
+            if(courseId < 0)
             {
-                JOptionPane.showMessageDialog(null, "Please fill in all information to create a record.");
+                JOptionPane.showMessageDialog(null, "Please enter a valid ID.");
             }
             else{
-                Course createCourse = CourseFactory.createCourse(courseName,courseDescription,departmentId);
-
-                Course result = CourseHttpClient.create(createCourse);
+                Course result = CourseHttpClient.read(courseId);
 
                 if(result != null)
                 {
-                    JOptionPane.showMessageDialog(null, "You have successfully created a Course !");
+                    JOptionPane.showMessageDialog(null, "Course exists with ID of: " + courseId);
 
-                    txtCourseName.setText("");
-                    txtCourseDescription.setText("");
-                    txtDepartmentId.setText("");
-                    lblDate1.setText("");
+                    lblCourseName1.setText(String.valueOf(result.getCourseName()));
+                    lblCourseDescription1.setText(String.valueOf(result.getCourseDescription()));
+                    lblDepartmentId1.setText(String.valueOf(result.getDepartmentId()));
+                    
 
-                    txtCourseName.requestFocus();
                 }
                 else {
-                    JOptionPane.showMessageDialog(null, "There was an error creating a new Course...");
+                    JOptionPane.showMessageDialog(null, "No Course exists with ID of: " + courseId);
                 }
             }
+        }
+        else if(e.getActionCommand().equals("Clear"))
+        {
+            txtCourseId.setText("");
+            lblCourseName1.setText("");
+            lblCourseDescription1.setText("");
+            lblDepartmentId1.setText("");
+            lblDate1.setText("");
+
+            txtCourseId.requestFocus();
         }
         else if(e.getActionCommand().equals("Exit"))
         {
@@ -194,6 +192,6 @@ public class CreateCourse extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        new CreateCourse().setGui();
+        new ReadCourse().setGui();
     }
 }
