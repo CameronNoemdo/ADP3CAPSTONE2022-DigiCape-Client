@@ -1,53 +1,49 @@
 package za.ac.cput.views.student;
-
 import za.ac.cput.client.StudentHttpClient;
 import za.ac.cput.entity.Student;
-import za.ac.cput.factory.StudentFactory;
-
+import za.ac.cput.views.StudentMenu;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import za.ac.cput.views.StudentMenu;
 
-
-public class CreateStudent extends JFrame implements ActionListener
+public class ReadStudent extends JFrame implements ActionListener
 {
 
     //Attributes
     private JPanel northPanel, centerPanel, southPanel;
-    private JLabel lblHeading, lblStudentId, lblStudentId1, lblFirstName, lblMiddleName, lblLastName,
-            lblStudentEmail, lblCourseID;
-    private  JTextField  txtFirstName, txtMiddleName, txtLastName, txtStudentEmail, txtCourseID;
-    private JButton btnCreate, btnExit;
+    private JLabel lblHeading, lblStudentId, lblFirstName, lblMiddleName, lblLastName, lblStudentEmail, lblCourseID;
+    private JLabel lblFirstName1, lblMiddleName1, lblLastName1, lblStudentEmail1, lblCourseID1;
+    private JTextField txtStudentId;
+    private JButton btnRead, btnClear, btnExit;
     private Font ftHeading, ftText, ftTextBold;
-    private JLabel emptySpace1, emptySpace2, emptySpace3, emptySpace4, emptySpace5, emptySpace6, emptySpace7, emptySpace8, emptySpace9, emptySpace10, emptySpace11;
+    private JLabel emptySpace1, emptySpace2, emptySpace3, emptySpace4, emptySpace5, emptySpace6, emptySpace7, emptySpace8, emptySpace9, emptySpace10, emptySpace11, emptySpace12;
 
-    public CreateStudent()
+    public ReadStudent()
     {
-        super("Create Student Screen version: 1.0 by Themba");
+        super("Read Student Screen version: 1.0 by @Group 09");
 
         northPanel = new JPanel();
         centerPanel = new JPanel();
         southPanel = new JPanel();
 
-
-        lblHeading = new JLabel("Create Student", SwingConstants.CENTER);
+        lblHeading = new JLabel("Read Student", SwingConstants.CENTER);
         lblStudentId = new JLabel("Student ID: ", SwingConstants.RIGHT);
         lblFirstName = new JLabel("FirstName: ", SwingConstants.RIGHT);
         lblMiddleName = new JLabel("MiddleName: ", SwingConstants.RIGHT);
-        lblLastName = new JLabel("Last Name: ", SwingConstants.RIGHT);
-        lblStudentEmail = new JLabel("Student Email: ", SwingConstants.RIGHT);
-        lblCourseID = new JLabel("Course ID: ", SwingConstants.RIGHT);
+        lblLastName = new JLabel("LastName: ", SwingConstants.RIGHT);
+        lblStudentEmail = new JLabel("StudentEmail: ", SwingConstants.RIGHT);
+        lblCourseID = new JLabel("CourseID : ", SwingConstants.RIGHT);
 
-        lblStudentId1 = new JLabel("Auto Generated...");
-        txtFirstName = new JTextField();
-        txtMiddleName= new JTextField();
-        txtLastName= new JTextField();
-        txtStudentEmail = new JTextField();
-        txtCourseID = new JTextField();
+        txtStudentId = new JTextField();
+        lblFirstName1 = new JLabel("");
+        lblMiddleName1 = new JLabel("");
+        lblLastName1 = new JLabel("");
+        lblStudentEmail1 = new JLabel("");
+        lblCourseID1 = new JLabel("");
 
-        btnCreate = new JButton("Create");
+        btnRead = new JButton("Read");
+        btnClear = new JButton("Clear");
         btnExit = new JButton("Exit");
 
         ftHeading = new Font("Segoe UI Black", Font.PLAIN, 28);
@@ -65,6 +61,7 @@ public class CreateStudent extends JFrame implements ActionListener
         emptySpace9 = new JLabel();
         emptySpace10 = new JLabel();
         emptySpace11 = new JLabel();
+        emptySpace12 = new JLabel();
     }
 
     public void setGui()
@@ -72,8 +69,7 @@ public class CreateStudent extends JFrame implements ActionListener
         //Add Gridlayout to panels
         northPanel.setLayout(new FlowLayout());
         centerPanel.setLayout(new GridLayout(8,3));
-        southPanel.setLayout(new GridLayout(2,2));
-
+        southPanel.setLayout(new GridLayout(2,3));
 
         //Set font
         lblHeading.setFont(ftHeading);
@@ -86,49 +82,51 @@ public class CreateStudent extends JFrame implements ActionListener
         lblStudentEmail.setFont(ftTextBold);
         lblCourseID.setFont(ftTextBold);
 
-        btnCreate.setFont(ftTextBold);
+        btnRead.setFont(ftTextBold);
         btnExit.setFont(ftTextBold);
 
-        lblStudentId1.setFont(ftText);
-        txtFirstName.setFont(ftText);
-        txtMiddleName.setFont(ftText);
-        txtLastName.setFont(ftText);
-        txtStudentEmail.setFont(ftText);
-        txtCourseID.setFont(ftText);
+        txtStudentId.setFont(ftText);
+        lblFirstName1.setFont(ftText);
+        lblMiddleName1.setFont(ftText);
+        lblLastName1.setFont(ftText);
+        lblStudentEmail1.setFont(ftText);
+        lblCourseID1.setFont(ftText);
 
         //Add components to panels
         northPanel.add(lblHeading);
         //northPanel.setBackground(Color.decode("#4863A0"));
 
         centerPanel.add(lblStudentId);
-        centerPanel.add(lblStudentId1);
+        centerPanel.add(txtStudentId);
         centerPanel.add(emptySpace1);
 
         centerPanel.add(lblFirstName);
-        centerPanel.add(txtFirstName);
+        centerPanel.add(lblFirstName1);
         centerPanel.add(emptySpace2);
 
         centerPanel.add(lblMiddleName);
-        centerPanel.add(txtMiddleName);
+        centerPanel.add(lblMiddleName1);
         centerPanel.add(emptySpace3);
 
         centerPanel.add(lblLastName);
-        centerPanel.add(txtLastName);
+        centerPanel.add(lblLastName1);
         centerPanel.add(emptySpace4);
 
         centerPanel.add(lblStudentEmail);
-        centerPanel.add(txtStudentEmail);
+        centerPanel.add(lblStudentEmail1);
         centerPanel.add(emptySpace5);
 
         centerPanel.add(lblCourseID);
-        centerPanel.add(txtCourseID);
-        centerPanel.add(emptySpace7);
+        centerPanel.add(lblCourseID1);
+        centerPanel.add(emptySpace6);
 
         //centerPanel.setBackground(Color.decode("#CECECE"));
 
         southPanel.add(emptySpace10);
         southPanel.add(emptySpace11);
-        southPanel.add(btnCreate);
+        southPanel.add(emptySpace12);
+        southPanel.add(btnRead);
+        southPanel.add(btnClear);
         southPanel.add(btnExit);
         //southPanel.setBackground(Color.decode("#CECECE"));
 
@@ -138,7 +136,8 @@ public class CreateStudent extends JFrame implements ActionListener
         this.add(southPanel, BorderLayout.SOUTH);
 
         //Add action listener to buttons | mouse listener to hyperlink
-        btnCreate.addActionListener(this);
+        btnRead.addActionListener(this);
+        btnClear.addActionListener(this);
         btnExit.addActionListener(this);
 
         //Frame
@@ -151,42 +150,43 @@ public class CreateStudent extends JFrame implements ActionListener
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if(e.getActionCommand().equals("Read"))
+        {
+            String studentId = String.format(txtStudentId.getText().trim().toString());
 
-        if (e.getActionCommand().equals("Create")) {
-            String firstName = txtFirstName.getText().trim().toString();
-            String middleName = txtMiddleName.getText().trim().toString();
-            String lastName = txtLastName.getText().trim().toString();
-            String studentEmail = txtStudentEmail.getText().trim().toString();
-            String courseID= (txtCourseID.getText().trim().toString());
-
-            if (firstName.isEmpty() || middleName.isEmpty() || lastName.isEmpty() || studentEmail.isEmpty() ||
-                    courseID.isEmpty())
+            if(studentId.isEmpty())
             {
-                JOptionPane.showMessageDialog(null, "Please fill in all information to create a student profile.");
+                JOptionPane.showMessageDialog(null, "Please enter a valid ID.");
             }
+            else{
+                Student result = StudentHttpClient.read(studentId);
 
-            else {
+                if(result != null)
+                {
+                    JOptionPane.showMessageDialog(null, "Student exist with ID of: " + studentId);
 
-                Student createStudent = StudentFactory.createStudent(firstName,middleName,lastName,studentEmail,courseID);
-
-                Student result = StudentHttpClient.create(createStudent);
-
-                if (result != null) {
-                    JOptionPane.showMessageDialog(null, "You have successfully created your student profile!.");
-
-                    txtFirstName.setText("");
-                    txtMiddleName.setText("");
-                    txtLastName.setText("");
-                    txtStudentEmail.setText("");
-                    txtCourseID.setText("");
-
-                    txtFirstName.requestFocus();
-                } else {
-                    JOptionPane.showMessageDialog(null, "There was an error creating a student profile.");
+                    lblFirstName1.setText(result.getFirstName());
+                    lblMiddleName1.setText(result.getMiddleName());
+                    lblLastName1.setText(result.getLastName());
+                    lblStudentEmail1.setText(result.getStudentEmail());
+                    lblCourseID1.setText(String.valueOf(result.getCourseID()));
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "No Student exists with ID of: " + studentId);
                 }
             }
         }
+        else if(e.getActionCommand().equals("Clear"))
+        {
+            txtStudentId.setText("");
+            lblFirstName1.setText("");
+            lblMiddleName1.setText("");
+            lblLastName1.setText("");
+            lblStudentEmail1.setText("");
+            lblCourseID1.setText("");
 
+            txtStudentId.requestFocus();
+        }
         else if(e.getActionCommand().equals("Exit"))
         {
             new StudentMenu().setGui();
@@ -195,6 +195,6 @@ public class CreateStudent extends JFrame implements ActionListener
     }
 
     public static void main(String[] args) {
-        new CreateStudent().setGui();
+        new ReadStudent().setGui();
     }
 }
