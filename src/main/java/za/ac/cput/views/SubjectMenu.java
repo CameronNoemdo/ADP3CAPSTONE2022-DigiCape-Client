@@ -74,7 +74,7 @@ public class SubjectMenu extends JFrame implements ActionListener {
         btnExit.setFont(ftTextBold);
 
         //Button Formatting
-        btnGetAll.setBackground(Color.BLACK);
+      /*  btnGetAll.setBackground(Color.BLACK);
         btnDelete.setBackground(Color.BLACK);
         btnUpdate.setBackground(Color.BLACK);
         btnRead.setBackground(Color.BLACK);
@@ -86,7 +86,7 @@ public class SubjectMenu extends JFrame implements ActionListener {
         btnUpdate.setForeground(Color.WHITE);
         btnRead.setForeground(Color.WHITE);
         btnCreate.setForeground(Color.WHITE);
-        btnExit.setForeground(Color.WHITE);
+        btnExit.setForeground(Color.WHITE);*/
 
         //Add components to panels
         northPanel.add(lblHeading);

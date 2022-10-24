@@ -98,7 +98,7 @@ if(e.getActionCommand().equals("Login")) {
     if (Username.equals("Admin") && Password1.equals("Admin123")){
         JOptionPane.showMessageDialog(null, "Login Successful!");
         frame.dispose();
-        new CourseMenu().setGui();
+        new AdminMenu().setGui();
 
     }
 

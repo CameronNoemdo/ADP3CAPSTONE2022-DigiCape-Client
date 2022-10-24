@@ -114,6 +114,7 @@ public class AdminMenu extends JFrame implements ActionListener {
         this.pack();
         this.setSize(600, 550);
         this.setVisible(true);
+        this.setLocationRelativeTo(null);
 
     }
 

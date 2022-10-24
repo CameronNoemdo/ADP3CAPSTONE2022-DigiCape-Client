@@ -77,7 +77,7 @@ public class CourseMenu extends JFrame implements ActionListener {
         btnCreate.setFont(ftTextBold);
         btnExit.setFont(ftTextBold);
 
-        //Button Formatting
+    /*    //Button Formatting
         btnGetAll.setBackground(Color.BLACK);
         btnDelete.setBackground(Color.BLACK);
         btnUpdate.setBackground(Color.BLACK);
@@ -90,7 +90,7 @@ public class CourseMenu extends JFrame implements ActionListener {
         btnUpdate.setForeground(Color.WHITE);
         btnRead.setForeground(Color.WHITE);
         btnCreate.setForeground(Color.WHITE);
-        btnExit.setForeground(Color.WHITE);
+        btnExit.setForeground(Color.WHITE);*/
 
         //Add components to panels
         northPanel.add(lblHeading);
@@ -175,7 +175,8 @@ public class CourseMenu extends JFrame implements ActionListener {
         }
         else if(e.getActionCommand().equals("Exit"))
         {
-            System.exit(0);
+            new AdminMenu().setGui();
+            this.dispose();
         }
     }
 

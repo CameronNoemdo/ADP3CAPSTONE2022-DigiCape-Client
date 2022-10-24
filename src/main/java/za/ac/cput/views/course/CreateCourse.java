@@ -95,12 +95,12 @@ public class CreateCourse extends JFrame implements ActionListener {
         txtCourseDescription.setFont(ftText);
         txtDepartmentId.setFont(ftText);
 
-        //Formatting buttons
+      /*  //Formatting buttons
         btnCreate.setBackground(Color.BLACK);
         btnCreate.setForeground(Color.WHITE);
 
         btnExit.setBackground(Color.BLACK);
-        btnExit.setForeground(Color.WHITE);
+        btnExit.setForeground(Color.WHITE);*/
 
         //Add components to panels
         northPanel.add(lblHeading);

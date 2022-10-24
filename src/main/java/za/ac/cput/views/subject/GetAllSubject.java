@@ -97,7 +97,7 @@ public class GetAllSubject extends JFrame implements ActionListener {
         table.getColumnModel().getColumn(1).setPreferredWidth(400);
         table.getColumnModel().getColumn(2).setPreferredWidth(200);
         table.getColumnModel().getColumn(3).setPreferredWidth(200);
-        table.getColumnModel().getColumn(4).setPreferredWidth(400);
+
 
 
         //Add table to scroll pane

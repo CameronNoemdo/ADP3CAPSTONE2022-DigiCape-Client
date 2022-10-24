@@ -91,11 +91,11 @@ public class CreateSubject extends JFrame implements ActionListener {
         txtLecturerId.setFont(ftText);
 
         //Formatting buttons
-        btnCreate.setBackground(Color.BLACK);
+       /* btnCreate.setBackground(Color.BLACK);
         btnCreate.setForeground(Color.WHITE);
 
         btnExit.setBackground(Color.BLACK);
-        btnExit.setForeground(Color.WHITE);
+        btnExit.setForeground(Color.WHITE);*/
 
         //Add components to panels
         northPanel.add(lblHeading);

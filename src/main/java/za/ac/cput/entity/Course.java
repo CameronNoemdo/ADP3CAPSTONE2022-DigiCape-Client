@@ -9,13 +9,9 @@ import java.util.List;
  Date: 15/03/2022
 */
 
-@Entity
-@Table(name="course")
 public class Course {
 
 
-    @Id
-    @GeneratedValue
     private int courseId;
     private  String courseName;
     private String courseDescription;
