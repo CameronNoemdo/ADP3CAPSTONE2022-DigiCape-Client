@@ -9,7 +9,7 @@ public class SystemAdminFactory {
     {
 
 
-        String adminID = GenericHelper.generateUniqueIntId();
+        String adminID = GenericHelper.generateID();
 
         SystemAdmin systemAdmin = new SystemAdmin.Builder()
                 .setAdminID(adminID)
