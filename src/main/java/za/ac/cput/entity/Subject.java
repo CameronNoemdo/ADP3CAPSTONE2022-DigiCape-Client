@@ -7,13 +7,10 @@ import javax.persistence.*;
  Author: Mathew Fortuin -219069514
  Date: 15/03/2022
 */
-@Entity
-@Table(name="subject")
+
+
 public class Subject {
 
-
-    @Id
-    @GeneratedValue
     private Integer subjectID;
     private String subjectName;
     private Integer subjectCredit;
