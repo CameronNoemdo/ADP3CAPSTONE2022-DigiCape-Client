@@ -101,6 +101,13 @@ if(e.getActionCommand().equals("Login")) {
         new AdminMenu().setGui();
 
     }
+    else if(Username.equals("") || Password1.equals(""))
+    {
+        JOptionPane.showMessageDialog(frame,
+                "Please provide a Username and Password",
+                "Access Denied",
+                JOptionPane.ERROR_MESSAGE);
+    }
 
     else
         JOptionPane.showMessageDialog(frame,
