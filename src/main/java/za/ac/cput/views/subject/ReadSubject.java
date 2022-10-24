@@ -3,49 +3,50 @@ package za.ac.cput.views.subject;
 import za.ac.cput.client.CourseHttpClient;
 import za.ac.cput.client.SubjectHttpClient;
 import za.ac.cput.entity.Subject;
-import za.ac.cput.factory.SubjectFactory;
+import za.ac.cput.views.CourseMenu;
 import za.ac.cput.views.SubjectMenu;
-import za.ac.cput.views.subject.CreateSubject;
+import za.ac.cput.views.subject.ReadSubject;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class CreateSubject extends JFrame implements ActionListener {
+public class ReadSubject extends JFrame implements ActionListener {
+
 
     //Attributes
     private JPanel northPanel, centerPanel, southPanel, radioPanel;
-    private JLabel lblHeading, lblSubjectId, lblSubjectId1, lblSubjectIName, lblSubjectCredits, lblLecturerId, lblDate, lblDate1;
-    private  JTextField  txtSubjectName, txtSubjectCredits, txtLecturerId;
-    private JButton btnCreate, btnExit;
+    private JLabel lblHeading, lblSubjectId, lblSubjectName, lblSubjectCredits, lblLecturerId, lblDate;
+    private JLabel lblSubjectName1, lblSubjectCredits1, lblLecturerId1, lblDate1;
+    private JTextField txtSubjectId;
+    private JButton btnRead, btnClear, btnExit;
     private Font ftHeading, ftText, ftTextBold;
-    private JLabel emptySpace1, emptySpace2, emptySpace3, emptySpace4, emptySpace5, emptySpace6, emptySpace7, emptySpace8, emptySpace9, emptySpace10, emptySpace11;
+    private JLabel emptySpace1, emptySpace2, emptySpace3, emptySpace4, emptySpace5, emptySpace6, emptySpace7, emptySpace8, emptySpace9, emptySpace10, emptySpace11, emptySpace12;
 
-    public CreateSubject()
+    public ReadSubject()
     {
-        super("Create Subject Screen version: 1.0 by Mathew Fortuin");
+        super("Read Subject Screen version: 1.0 by Mathew Fortuin");
 
         northPanel = new JPanel();
         centerPanel = new JPanel();
         southPanel = new JPanel();
-        radioPanel = new JPanel();
 
-        lblHeading = new JLabel("Create Subject", SwingConstants.CENTER);
+        lblHeading = new JLabel("Read Subject", SwingConstants.CENTER);
         lblSubjectId = new JLabel("Subject ID: ", SwingConstants.RIGHT);
-        lblSubjectIName = new JLabel("Subject Name: ", SwingConstants.RIGHT);
+        lblSubjectName = new JLabel("Subject Name: ", SwingConstants.RIGHT);
         lblSubjectCredits = new JLabel("Subject Credits: ", SwingConstants.RIGHT);
         lblLecturerId = new JLabel("Lecturer ID: ", SwingConstants.RIGHT);
         lblDate = new JLabel("Date: ", SwingConstants.RIGHT);
 
+        txtSubjectId = new JTextField();
+        lblSubjectName1 = new JLabel("");
+        lblSubjectCredits1 = new JLabel("");
+        lblLecturerId1 = new JLabel("");
+        lblDate1 = new JLabel("");
 
-        lblSubjectId1 = new JLabel("Auto Generated");
-        txtSubjectName = new JTextField();
-        txtSubjectCredits = new JTextField();
-        txtLecturerId = new JTextField();
-        lblDate1 = new JLabel("Auto Generated");
-
-        btnCreate = new JButton("Create");
+        btnRead = new JButton("Read");
+        btnClear = new JButton("Clear");
         btnExit = new JButton("Exit");
 
         ftHeading = new Font("Segoe UI Black", Font.PLAIN, 28);
@@ -63,6 +64,7 @@ public class CreateSubject extends JFrame implements ActionListener {
         emptySpace9 = new JLabel();
         emptySpace10 = new JLabel();
         emptySpace11 = new JLabel();
+        emptySpace12 = new JLabel();
     }
 
     public void setGui()
@@ -70,51 +72,44 @@ public class CreateSubject extends JFrame implements ActionListener {
         //Add Gridlayout to panels
         northPanel.setLayout(new FlowLayout());
         centerPanel.setLayout(new GridLayout(7,3));
-        southPanel.setLayout(new GridLayout(2,2));
+        southPanel.setLayout(new GridLayout(2,3));
 
         //Set font
         lblHeading.setFont(ftHeading);
         //lblHeading.setForeground(Color.decode("#FFFFFF"));
 
         lblSubjectId.setFont(ftTextBold);
-        lblSubjectIName.setFont(ftTextBold);
+        lblSubjectName.setFont(ftTextBold);
         lblSubjectCredits.setFont(ftTextBold);
         lblLecturerId.setFont(ftTextBold);
         lblDate.setFont(ftTextBold);
-        btnCreate.setFont(ftTextBold);
+        btnRead.setFont(ftTextBold);
         btnExit.setFont(ftTextBold);
 
-        lblSubjectId1.setFont(ftText);
+        txtSubjectId.setFont(ftText);
+        lblSubjectName1.setFont(ftText);
+        lblSubjectCredits1.setFont(ftText);
+        lblLecturerId1.setFont(ftText);
         lblDate1.setFont(ftText);
-        txtSubjectName.setFont(ftText);
-        txtSubjectCredits.setFont(ftText);
-        txtLecturerId.setFont(ftText);
-
-        //Formatting buttons
-        btnCreate.setBackground(Color.BLACK);
-        btnCreate.setForeground(Color.WHITE);
-
-        btnExit.setBackground(Color.BLACK);
-        btnExit.setForeground(Color.WHITE);
 
         //Add components to panels
         northPanel.add(lblHeading);
         //northPanel.setBackground(Color.decode("#4863A0"));
 
         centerPanel.add(lblSubjectId);
-        centerPanel.add(lblSubjectId1);
+        centerPanel.add(txtSubjectId);
         centerPanel.add(emptySpace1);
 
-        centerPanel.add(lblSubjectIName);
-        centerPanel.add(txtSubjectName);
+        centerPanel.add(lblSubjectName);
+        centerPanel.add(lblSubjectName1);
         centerPanel.add(emptySpace2);
 
         centerPanel.add(lblSubjectCredits);
-        centerPanel.add(txtSubjectCredits);
+        centerPanel.add(lblSubjectCredits1);
         centerPanel.add(emptySpace3);
 
         centerPanel.add(lblLecturerId);
-        centerPanel.add(txtLecturerId);
+        centerPanel.add(lblLecturerId1);
         centerPanel.add(emptySpace4);
 
         centerPanel.add(lblDate);
@@ -125,7 +120,9 @@ public class CreateSubject extends JFrame implements ActionListener {
 
         southPanel.add(emptySpace10);
         southPanel.add(emptySpace11);
-        southPanel.add(btnCreate);
+        southPanel.add(emptySpace12);
+        southPanel.add(btnRead);
+        southPanel.add(btnClear);
         southPanel.add(btnExit);
         //southPanel.setBackground(Color.decode("#CECECE"));
 
@@ -135,7 +132,8 @@ public class CreateSubject extends JFrame implements ActionListener {
         this.add(southPanel, BorderLayout.SOUTH);
 
         //Add action listener to buttons | mouse listener to hyperlink
-        btnCreate.addActionListener(this);
+        btnRead.addActionListener(this);
+        btnClear.addActionListener(this);
         btnExit.addActionListener(this);
 
         //Frame
@@ -148,38 +146,41 @@ public class CreateSubject extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
-        if(e.getActionCommand().equals("Create"))
+        if(e.getActionCommand().equals("Read"))
         {
-            String subjectName =(txtSubjectName.getText().trim());
-            Integer subjectCredits = Integer.parseInt(txtSubjectCredits.getText().trim());
-            String lecturerId = (txtLecturerId.getText().trim());
+            Integer subjectId = Integer.parseInt(txtSubjectId.getText().trim());
 
-
-            if(subjectName.equals("")|| subjectCredits.equals("")|| lecturerId.equals(""))
+            if(subjectId < 0)
             {
-                JOptionPane.showMessageDialog(null, "Please fill in all information to create a record.");
+                JOptionPane.showMessageDialog(null, "Please enter a valid ID.");
             }
             else{
-                Subject createSubject = SubjectFactory.createSubject(subjectName,subjectCredits,lecturerId);
-
-                Subject result = SubjectHttpClient.create(createSubject);
+                Subject result = SubjectHttpClient.read(subjectId);
 
                 if(result != null)
                 {
-                    JOptionPane.showMessageDialog(null, "You have successfully created a Subject !");
+                    JOptionPane.showMessageDialog(null, "Subject exists with ID of: " + subjectId);
 
-                    txtSubjectName.setText("");
-                    txtSubjectCredits.setText("");
-                    txtLecturerId.setText("");
-                    lblDate1.setText("");
+                    lblSubjectName1.setText(String.valueOf(result.getSubjectName()));
+                    lblSubjectCredits1.setText(String.valueOf(result.getSubjectCredit()));
+                    lblLecturerId1.setText(String.valueOf(result.getLecturerID()));
 
-                    txtSubjectName.requestFocus();
+
                 }
                 else {
-                    JOptionPane.showMessageDialog(null, "There was an error creating a new Subject...");
+                    JOptionPane.showMessageDialog(null, "No Subject exists with ID of: " + subjectId);
                 }
             }
+        }
+        else if(e.getActionCommand().equals("Clear"))
+        {
+            txtSubjectId.setText("");
+            lblSubjectName1.setText("");
+            lblSubjectCredits1.setText("");
+            lblLecturerId1.setText("");
+            lblDate1.setText("");
+
+            txtSubjectId.requestFocus();
         }
         else if(e.getActionCommand().equals("Exit"))
         {
@@ -189,6 +190,6 @@ public class CreateSubject extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        new CreateSubject().setGui();
+        new ReadSubject().setGui();
     }
 }
