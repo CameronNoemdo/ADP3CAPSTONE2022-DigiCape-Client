@@ -1,17 +1,14 @@
 package za.ac.cput.views.test;
 
 import za.ac.cput.client.TestHttpClient;
-import za.ac.cput.entity.Student;
 import za.ac.cput.entity.TestModel;
-import za.ac.cput.factory.StudentFactory;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import za.ac.cput.factory.TestFactory;
-import za.ac.cput.views.StudentMenu;
+import za.ac.cput.views.TestMenu;
 
 
 public class CreateTest extends JFrame implements ActionListener
@@ -19,8 +16,8 @@ public class CreateTest extends JFrame implements ActionListener
 
     //Attributes
     private JPanel northPanel, centerPanel, southPanel;
-    private JLabel lblHeading, lblTestId, lblTestId1, lblSubjectId, lblTestName, lblLTestDate,
-            lblDuratin, lblResultsInPercentage;
+    private JLabel lblHeading, lblTestId, lblTestId1, lblSubjectId, lblTestName, lblTestDate,
+            lblDuratin, lblResultsInPercent;
     private  JTextField  txtSubjectId, txtTestName, txtTestDate, txtDuration, txtResultsInPercent;
     private JButton btnCreate, btnExit;
     private Font ftHeading, ftText, ftTextBold;
@@ -39,9 +36,9 @@ public class CreateTest extends JFrame implements ActionListener
         lblTestId = new JLabel("TestModel ID: ", SwingConstants.RIGHT);
         lblSubjectId = new JLabel("SubjectID: ", SwingConstants.RIGHT);
         lblTestName = new JLabel("TestName: ", SwingConstants.RIGHT);
-        lblLTestDate = new JLabel("TestDate: ", SwingConstants.RIGHT);
+        lblTestDate = new JLabel("TestDate: ", SwingConstants.RIGHT);
         lblDuratin = new JLabel("Duration: ", SwingConstants.RIGHT);
-        lblResultsInPercentage = new JLabel("WeightPercentage: ", SwingConstants.RIGHT);
+        lblResultsInPercent = new JLabel("ResultsInPercent: ", SwingConstants.RIGHT);
 
         lblTestId1 = new JLabel("Auto Generated...");
         txtSubjectId = new JTextField();
@@ -85,9 +82,9 @@ public class CreateTest extends JFrame implements ActionListener
         lblTestId.setFont(ftTextBold);
         lblSubjectId.setFont(ftTextBold);
         lblTestName.setFont(ftTextBold);
-        lblLTestDate.setFont(ftTextBold);
+        lblTestDate.setFont(ftTextBold);
         lblDuratin.setFont(ftTextBold);
-        lblResultsInPercentage.setFont(ftTextBold);
+        lblResultsInPercent.setFont(ftTextBold);
 
         btnCreate.setFont(ftTextBold);
         btnExit.setFont(ftTextBold);
@@ -115,7 +112,7 @@ public class CreateTest extends JFrame implements ActionListener
         centerPanel.add(txtTestName);
         centerPanel.add(emptySpace3);
 
-        centerPanel.add(lblLTestDate);
+        centerPanel.add(lblTestDate);
         centerPanel.add(txtTestDate);
         centerPanel.add(emptySpace4);
 
@@ -123,7 +120,7 @@ public class CreateTest extends JFrame implements ActionListener
         centerPanel.add(txtDuration);
         centerPanel.add(emptySpace5);
 
-        centerPanel.add(lblResultsInPercentage);
+        centerPanel.add(lblResultsInPercent);
         centerPanel.add(txtResultsInPercent);
         centerPanel.add(emptySpace7);
 
@@ -160,18 +157,42 @@ public class CreateTest extends JFrame implements ActionListener
             String testName = txtTestName.getText().trim().toString();
             String testDate = txtTestDate.getText().trim().toString();
             String duration = txtDuration.getText().trim().toString();
+            int resultsInPercentage = Integer.parseInt(txtResultsInPercent.getText().trim().toString());
 
-
-            if (subjectId.isEmpty() || testName.isEmpty() || testDate.isEmpty() || duration.isEmpty())
+            if (subjectId.isEmpty() || testName.isEmpty() || testDate.isEmpty() || duration.isEmpty()|| resultsInPercentage < 0)
             {
                 JOptionPane.showMessageDialog(null, "Please fill in all information to create a student profile.");
             }
 
             else {
-                    JOptionPane.showMessageDialog(null, "There was an error creating a student profile.");
+
+                TestModel createTest = TestFactory.createTest(subjectId,testName,testDate,duration,resultsInPercentage);
+
+                TestModel result =TestHttpClient.create(createTest);
+
+                if (result != null) {
+                    JOptionPane.showMessageDialog(null, "You have successfully created your profile!.");
+
+                    txtSubjectId.setText("");
+                    txtTestName.setText("");
+                    txtTestDate.setText("");
+                    txtDuration.setText("");
+                    txtResultsInPercent.setText("");
+
+                    txtSubjectId.requestFocus();
+                } else {
+                    JOptionPane.showMessageDialog(null, "There was an error creating a profile.");
                 }
             }
         }
+
+        else if(e.getActionCommand().equals("Exit"))
+        {
+            new TestMenu().setGui();
+            this.dispose();
+        }
+    }
+
 
 
 

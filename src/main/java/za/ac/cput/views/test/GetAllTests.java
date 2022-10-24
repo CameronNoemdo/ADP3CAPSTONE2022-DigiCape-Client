@@ -1,8 +1,8 @@
 package za.ac.cput.views.test;
 
-import za.ac.cput.client.StudentHttpClient;
-import za.ac.cput.entity.Student;
-import za.ac.cput.views.StudentMenu;
+import za.ac.cput.client.TestHttpClient;
+import za.ac.cput.entity.TestModel;
+import za.ac.cput.views.TestMenu;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -23,21 +23,21 @@ public class GetAllTests extends JFrame implements ActionListener
     private JTable table;
     private DefaultTableModel model;
     private JScrollPane sPane;
-    String[] columnStudentAttributes = {"StudentID", "FirstName", "MiddleName", "LastName", "StudentEmail",
-            "CourseID"};
-    Student[] studentList = new Student[columnStudentAttributes.length];
+    String[] columnStudentAttributes = {"TestID", "SubjectID", "TestName", "TestDate", "Duration",
+            "ResultsInPercent"};
+    TestModel[] testModelList = new TestModel[columnStudentAttributes.length];
 
-    private Set<Student> studentSet;
+    private Set<TestModel> studentSet;
 
     public GetAllTests()
     {
-        super("Get All Students Screen version: 1.0 by Themba");
+        super("Get All Tests Screen version: 1.0 by Themba");
 
         northPanel = new JPanel();
         centerPanel = new JPanel();
         southPanel = new JPanel();
 
-        lblHeading = new JLabel("Read Students", SwingConstants.CENTER);
+        lblHeading = new JLabel("Read Tets", SwingConstants.CENTER);
 
         btnExit = new JButton("Exit");
 
@@ -64,8 +64,8 @@ public class GetAllTests extends JFrame implements ActionListener
         table = new JTable();
         model = (DefaultTableModel) table.getModel();
 
-        //Get list of customers
-        studentSet = StudentHttpClient.getAll();
+        //Get list of Tets
+        studentSet = TestHttpClient.getAll();
 
         //Add column names to the table
         for (String column : columnStudentAttributes)
@@ -74,19 +74,19 @@ public class GetAllTests extends JFrame implements ActionListener
         }
 
         //Add the rows to the table
-        studentList = StudentHttpClient.rows(); // Get customers array
+        testModelList = TestHttpClient.rows(); // Get customers array
 
         Object[] rows = new Object[columnStudentAttributes.length];
 
-        for(int i = 0; i < studentList.length; i++) //Create object array to add each row of data to the table
+        for(int i = 0; i < testModelList.length; i++) //Create object array to add each row of data to the table
         {
-            for(int k = 0; k < studentList.length - 1; k++) {
-                rows[k] = studentList[i].getStudentId();
-                rows[++k] = studentList[i].getFirstName();
-                rows[++k] = studentList[i].getMiddleName();
-                rows[++k] = studentList[i].getLastName();
-                rows[++k] = studentList[i].getStudentEmail();
-                rows[++k] = studentList[i].getCourseID();
+            for(int k = 0; k < testModelList.length - 1; k++) {
+                rows[k] = testModelList[i].getTestId();
+                rows[++k] = testModelList[i].getSubjectId();
+                rows[++k] = testModelList[i].getTestName();
+                rows[++k] = testModelList[i].getTestDate();
+                rows[++k] = testModelList[i].getDuration();
+                rows[++k] = testModelList[i].getResultInPercent();
 
                 model.addRow(rows);
             }
@@ -151,12 +151,12 @@ public class GetAllTests extends JFrame implements ActionListener
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("Exit"))
         {
-            new StudentMenu().setGui();
+            new TestMenu().setGui();
             this.dispose();
         }
     }
 
     public static void main(String[] args) {
-        new za.ac.cput.views.student.GetAllStudents().setGui();
+        new za.ac.cput.views.test.GetAllTests().setGui();
     }
 }

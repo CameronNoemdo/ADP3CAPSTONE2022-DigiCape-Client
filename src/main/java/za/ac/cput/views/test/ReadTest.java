@@ -1,7 +1,7 @@
 package za.ac.cput.views.test;
-import za.ac.cput.client.StudentHttpClient;
-import za.ac.cput.entity.Student;
-import za.ac.cput.views.StudentMenu;
+import za.ac.cput.client.TestHttpClient;
+import za.ac.cput.entity.TestModel;
+import za.ac.cput.views.TestMenu;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -12,35 +12,35 @@ public class ReadTest extends JFrame implements ActionListener
 
     //Attributes
     private JPanel northPanel, centerPanel, southPanel;
-    private JLabel lblHeading, lblStudentId, lblFirstName, lblMiddleName, lblLastName, lblStudentEmail, lblCourseID;
-    private JLabel lblFirstName1, lblMiddleName1, lblLastName1, lblStudentEmail1, lblCourseID1;
-    private JTextField txtStudentId;
+    private JLabel lblHeading, lblTestId, lblSubjectId, lblTestName, lblTestDate, lblDuration, lblResultsInPercent;
+    private JLabel lblTestId1, lblSubjectId1, lblTestName1, lblTestDate1, lblDuration1,lblResultsInPercent1;
+    private JTextField txtTestId;
     private JButton btnRead, btnClear, btnExit;
     private Font ftHeading, ftText, ftTextBold;
     private JLabel emptySpace1, emptySpace2, emptySpace3, emptySpace4, emptySpace5, emptySpace6, emptySpace7, emptySpace8, emptySpace9, emptySpace10, emptySpace11, emptySpace12;
 
     public ReadTest()
     {
-        super("Read Student Screen version: 1.0 by @Group 09");
+        super("Read Test Screen version: 1.0 by Themba");
 
         northPanel = new JPanel();
         centerPanel = new JPanel();
         southPanel = new JPanel();
 
-        lblHeading = new JLabel("Read Student", SwingConstants.CENTER);
-        lblStudentId = new JLabel("Student ID: ", SwingConstants.RIGHT);
-        lblFirstName = new JLabel("FirstName: ", SwingConstants.RIGHT);
-        lblMiddleName = new JLabel("MiddleName: ", SwingConstants.RIGHT);
-        lblLastName = new JLabel("LastName: ", SwingConstants.RIGHT);
-        lblStudentEmail = new JLabel("StudentEmail: ", SwingConstants.RIGHT);
-        lblCourseID = new JLabel("CourseID : ", SwingConstants.RIGHT);
+        lblHeading = new JLabel("Read Test", SwingConstants.CENTER);
+        lblTestId = new JLabel("TestID: ", SwingConstants.RIGHT);
+        lblSubjectId = new JLabel("SubjectIDe: ", SwingConstants.RIGHT);
+        lblTestName = new JLabel("TestName: ", SwingConstants.RIGHT);
+        lblTestDate = new JLabel("TestDate: ", SwingConstants.RIGHT);
+        lblDuration = new JLabel("Duration: ", SwingConstants.RIGHT);
+        lblResultsInPercent = new JLabel("ResultInPercent : ", SwingConstants.RIGHT);
 
-        txtStudentId = new JTextField();
-        lblFirstName1 = new JLabel("");
-        lblMiddleName1 = new JLabel("");
-        lblLastName1 = new JLabel("");
-        lblStudentEmail1 = new JLabel("");
-        lblCourseID1 = new JLabel("");
+        txtTestId = new JTextField();
+        lblSubjectId1 = new JLabel("");
+        lblTestName1 = new JLabel("");
+        lblTestDate1 = new JLabel("");
+        lblDuration1 = new JLabel("");
+        lblResultsInPercent1 = new JLabel("");
 
         btnRead = new JButton("Read");
         btnClear = new JButton("Clear");
@@ -75,49 +75,49 @@ public class ReadTest extends JFrame implements ActionListener
         lblHeading.setFont(ftHeading);
         //lblHeading.setForeground(Color.decode("#FFFFFF"));
 
-        lblStudentId.setFont(ftTextBold);
-        lblFirstName.setFont(ftTextBold);
-        lblMiddleName.setFont(ftTextBold);
-        lblLastName.setFont(ftTextBold);
-        lblStudentEmail.setFont(ftTextBold);
-        lblCourseID.setFont(ftTextBold);
+        lblTestId.setFont(ftTextBold);
+        lblSubjectId.setFont(ftTextBold);
+        lblTestName.setFont(ftTextBold);
+        lblTestDate.setFont(ftTextBold);
+        lblDuration.setFont(ftTextBold);
+        lblResultsInPercent.setFont(ftTextBold);
 
         btnRead.setFont(ftTextBold);
         btnExit.setFont(ftTextBold);
 
-        txtStudentId.setFont(ftText);
-        lblFirstName1.setFont(ftText);
-        lblMiddleName1.setFont(ftText);
-        lblLastName1.setFont(ftText);
-        lblStudentEmail1.setFont(ftText);
-        lblCourseID1.setFont(ftText);
+        txtTestId.setFont(ftText);
+        lblSubjectId1.setFont(ftText);
+        lblTestName1.setFont(ftText);
+        lblTestDate1.setFont(ftText);
+        lblDuration1.setFont(ftText);
+        lblResultsInPercent1.setFont(ftText);
 
         //Add components to panels
         northPanel.add(lblHeading);
         //northPanel.setBackground(Color.decode("#4863A0"));
 
-        centerPanel.add(lblStudentId);
-        centerPanel.add(txtStudentId);
+        centerPanel.add(lblTestId);
+        centerPanel.add(txtTestId);
         centerPanel.add(emptySpace1);
 
-        centerPanel.add(lblFirstName);
-        centerPanel.add(lblFirstName1);
+        centerPanel.add(lblSubjectId);
+        centerPanel.add(lblSubjectId1);
         centerPanel.add(emptySpace2);
 
-        centerPanel.add(lblMiddleName);
-        centerPanel.add(lblMiddleName1);
+        centerPanel.add(lblTestName);
+        centerPanel.add(lblTestName1);
         centerPanel.add(emptySpace3);
 
-        centerPanel.add(lblLastName);
-        centerPanel.add(lblLastName1);
+        centerPanel.add(lblTestDate);
+        centerPanel.add(lblTestDate1);
         centerPanel.add(emptySpace4);
 
-        centerPanel.add(lblStudentEmail);
-        centerPanel.add(lblStudentEmail1);
+        centerPanel.add(lblDuration);
+        centerPanel.add(lblDuration1);
         centerPanel.add(emptySpace5);
 
-        centerPanel.add(lblCourseID);
-        centerPanel.add(lblCourseID1);
+        centerPanel.add(lblResultsInPercent);
+        centerPanel.add(lblResultsInPercent1);
         centerPanel.add(emptySpace6);
 
         //centerPanel.setBackground(Color.decode("#CECECE"));
@@ -152,44 +152,44 @@ public class ReadTest extends JFrame implements ActionListener
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("Read"))
         {
-            String studentId = String.format(txtStudentId.getText().trim().toString());
+            String testId = String.format(txtTestId.getText().trim().toString());
 
-            if(studentId.isEmpty())
+            if(testId.isEmpty())
             {
                 JOptionPane.showMessageDialog(null, "Please enter a valid ID.");
             }
             else{
-                Student result = StudentHttpClient.read(studentId);
+                TestModel result = TestHttpClient.read(testId);
 
                 if(result != null)
                 {
-                    JOptionPane.showMessageDialog(null, "Student exist with ID of: " + studentId);
+                    JOptionPane.showMessageDialog(null, "Test exist with ID of: " + testId);
 
-                    lblFirstName1.setText(result.getFirstName());
-                    lblMiddleName1.setText(result.getMiddleName());
-                    lblLastName1.setText(result.getLastName());
-                    lblStudentEmail1.setText(result.getStudentEmail());
-                    lblCourseID1.setText(String.valueOf(result.getCourseID()));
+                    lblSubjectId1.setText(result.getSubjectId());
+                    lblTestName1.setText(result.getTestName());
+                    lblTestDate1.setText(result.getTestDate());
+                    lblDuration1.setText(result.getDuration());
+                    lblResultsInPercent1.setText(String.valueOf(result.getResultInPercent()));
                 }
                 else {
-                    JOptionPane.showMessageDialog(null, "No Student exists with ID of: " + studentId);
+                    JOptionPane.showMessageDialog(null, "No Test exists with ID of: " + testId);
                 }
             }
         }
         else if(e.getActionCommand().equals("Clear"))
         {
-            txtStudentId.setText("");
-            lblFirstName1.setText("");
-            lblMiddleName1.setText("");
-            lblLastName1.setText("");
-            lblStudentEmail1.setText("");
-            lblCourseID1.setText("");
+            txtTestId.setText("");
+            lblSubjectId.setText("");
+            lblTestName1.setText("");
+            lblTestDate1.setText("");
+            lblDuration1.setText("");
+            lblResultsInPercent1.setText("");
 
-            txtStudentId.requestFocus();
+            txtTestId.requestFocus();
         }
         else if(e.getActionCommand().equals("Exit"))
         {
-            new StudentMenu().setGui();
+            new TestMenu().setGui();
             this.dispose();
         }
     }
