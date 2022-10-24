@@ -1,9 +1,9 @@
 package za.ac.cput.views.test;
 
-import za.ac.cput.client.StudentHttpClient;
-import za.ac.cput.entity.Student;
-import za.ac.cput.factory.StudentFactory;
-import za.ac.cput.views.StudentMenu;
+import za.ac.cput.client.TestHttpClient;
+import za.ac.cput.entity.TestModel;
+import za.ac.cput.factory.TestFactory;
+import za.ac.cput.views.TestMenu;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -13,15 +13,15 @@ public class UpdateTest extends JFrame implements ActionListener
 {
     //Attributes
     private JPanel northPanel, centerPanel, southPanel, radioPanel;
-    private JLabel lblHeading,  lblStudentId, lblFirstName, lblMiddleName, lblLastName, lblStudentEmail, lblCourseID;
-    private  JTextField  txtStudentId,txtFirstName, txtMiddleName, txtLastName, txtStudentEmail, txtCourseID;
+    private JLabel lblHeading,   lblTestId, lblSubjectId, lblTestName, lblTestDate, lblDuration, lblResultsInPercent;
+    private  JTextField   txtTestId,txtSubjectId, txtTestName, txtTestDate, txtDuration, txtResultsInPercent;
     private JButton btnRead, btnCreate, btnClear, btnExit;
     private Font ftHeading, ftText, ftTextBold;
     private JLabel emptySpace1, emptySpace2, emptySpace3, emptySpace4, emptySpace5, emptySpace6, emptySpace7, emptySpace8, emptySpace9, emptySpace10, emptySpace11, emptySpace12, emptySpace13, emptySpace14;
 
     public UpdateTest()
     {
-        super("Update Student Screen version: 1.0 by Themba");
+        super("Update Test Screen version: 1.0 by Themba");
 
         northPanel = new JPanel();
         centerPanel = new JPanel();
@@ -29,21 +29,21 @@ public class UpdateTest extends JFrame implements ActionListener
         radioPanel = new JPanel();
 
 
-        lblHeading = new JLabel("Update Student", SwingConstants.CENTER);
-        lblStudentId = new JLabel("Student ID: ", SwingConstants.RIGHT);
-        lblFirstName = new JLabel("FirstName: ", SwingConstants.RIGHT);
-        lblMiddleName = new JLabel("MiddleName: ", SwingConstants.RIGHT);
-        lblLastName = new JLabel("LastName: ", SwingConstants.RIGHT);
-        lblStudentEmail = new JLabel("StudentEmail: ", SwingConstants.RIGHT);
-        lblCourseID = new JLabel("CourseID : ", SwingConstants.RIGHT);
+        lblHeading = new JLabel("Update Test", SwingConstants.CENTER);
+        lblTestId = new JLabel("TestModel ID: ", SwingConstants.RIGHT);
+        lblSubjectId = new JLabel("SubjectID: ", SwingConstants.RIGHT);
+        lblTestName = new JLabel("TestName: ", SwingConstants.RIGHT);
+        lblTestDate = new JLabel("TestDate: ", SwingConstants.RIGHT);
+        lblDuration = new JLabel("Duration: ", SwingConstants.RIGHT);
+        lblResultsInPercent = new JLabel("ResultsInPercent: ", SwingConstants.RIGHT);
 
+        txtTestId = new JTextField();
+        txtSubjectId = new JTextField();
+        txtTestName= new JTextField();
+        txtTestDate= new JTextField();
+        txtDuration = new JTextField();
+        txtResultsInPercent = new JTextField();
 
-        txtStudentId = new JTextField();
-        txtFirstName = new JTextField("");
-        txtMiddleName= new JTextField("");
-        txtLastName = new JTextField("");
-        txtStudentEmail = new JTextField("");
-        txtCourseID = new JTextField("");
 
 
 
@@ -87,51 +87,51 @@ public class UpdateTest extends JFrame implements ActionListener
         lblHeading.setFont(ftHeading);
         //lblHeading.setForeground(Color.decode("#FFFFFF"));
 
-        lblStudentId.setFont(ftTextBold);
-        lblFirstName.setFont(ftTextBold);
-        lblMiddleName.setFont(ftTextBold);
-        lblLastName.setFont(ftTextBold);
-        lblStudentEmail.setFont(ftTextBold);
-        lblCourseID.setFont(ftTextBold);
+        lblTestId.setFont(ftTextBold);
+        lblSubjectId.setFont(ftTextBold);
+        lblTestName.setFont(ftTextBold);
+        lblTestDate.setFont(ftTextBold);
+        lblDuration.setFont(ftTextBold);
+        lblResultsInPercent.setFont(ftTextBold);
 
         btnCreate.setFont(ftTextBold);
         btnExit.setFont(ftTextBold);
 
-        txtStudentId.setFont(ftText);
-        txtFirstName.setFont(ftText);
-        txtMiddleName.setFont(ftText);
-        txtLastName.setFont(ftText);
-        txtStudentEmail.setFont(ftText);
-        txtCourseID.setFont(ftText);
+        txtTestId.setFont(ftText);
+        txtSubjectId.setFont(ftText);
+        txtTestName.setFont(ftText);
+        txtTestDate.setFont(ftText);
+        txtDuration.setFont(ftText);
+        txtResultsInPercent.setFont(ftText);
 
 
         //Add components to panels
         northPanel.add(lblHeading);
         //northPanel.setBackground(Color.decode("#4863A0"));
 
-        centerPanel.add(lblStudentId);
-        centerPanel.add(txtStudentId);
+        centerPanel.add(lblTestId);
+        centerPanel.add(txtTestId);
         centerPanel.add(emptySpace1);
 
-        centerPanel.add(lblFirstName);
-        centerPanel.add(txtFirstName);
+        centerPanel.add(lblSubjectId);
+        centerPanel.add(txtSubjectId);
         centerPanel.add(emptySpace2);
 
-        centerPanel.add(lblMiddleName);
-        centerPanel.add(txtMiddleName);
+        centerPanel.add(lblTestName);
+        centerPanel.add(txtTestName);
         centerPanel.add(emptySpace3);
 
-        centerPanel.add(lblLastName);
-        centerPanel.add(txtLastName);
+        centerPanel.add(lblTestDate);
+        centerPanel.add(txtTestDate);
         centerPanel.add(emptySpace4);
 
 
-        centerPanel.add(lblStudentEmail);
-        centerPanel.add(txtStudentEmail);
+        centerPanel.add(lblDuration);
+        centerPanel.add(txtDuration);
         centerPanel.add(emptySpace5);
 
-        centerPanel.add(lblCourseID);
-        centerPanel.add(txtCourseID);
+        centerPanel.add(lblResultsInPercent);
+        centerPanel.add(txtResultsInPercent);
         centerPanel.add(emptySpace6);
 
         //centerPanel.setBackground(Color.decode("#CECECE"));
@@ -169,7 +169,7 @@ public class UpdateTest extends JFrame implements ActionListener
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("Read"))
         {
-            String studentId = String.format(txtStudentId.getText().trim().toString());
+            String studentId = String.format(txtTestId.getText().trim().toString());
 
             if(studentId != "")
             {
@@ -177,56 +177,56 @@ public class UpdateTest extends JFrame implements ActionListener
             }
             else{
 
-                Student oldStudent = StudentHttpClient.read(studentId);
+                TestModel oldTest = TestHttpClient.read(studentId);
 
-                if(oldStudent != null)
+                if(oldTest != null)
                 {
-                    JOptionPane.showMessageDialog(null, "Student exist with ID of: " + studentId);
+                    JOptionPane.showMessageDialog(null, "Test exist with ID of: " + studentId);
 
-                    txtFirstName.setText(oldStudent.getFirstName());
-                    txtMiddleName.setText(String.valueOf(oldStudent.getMiddleName()));
-                    txtLastName.setText(oldStudent.getLastName());
-                    txtStudentEmail.setText(oldStudent.getStudentEmail());
-                    txtCourseID.setText(String.valueOf(oldStudent.getCourseID()));
+                    txtSubjectId.setText(oldTest.getSubjectId());
+                    txtTestName.setText(String.valueOf(oldTest.getTestName()));
+                    txtTestDate.setText(oldTest.getTestDate());
+                    txtDuration.setText(oldTest.getDuration());
+                    txtResultsInPercent.setText(String.valueOf(oldTest.getResultInPercent()));
 
                     setTextFieldToEditable(); //Set all fields to editable
-                    txtStudentId.requestFocus();
+                    txtTestId.requestFocus();
                 }
                 else {
-                    JOptionPane.showMessageDialog(null, "No Student exists with ID of: " + studentId);
+                    JOptionPane.showMessageDialog(null, "No Test exists with ID of: " + studentId);
                 }
             }
         }
         else if(e.getActionCommand().equals("Update"))
         {
-            String studentId = String.format(txtStudentId.getText().trim().toString());
-            String firstName = txtFirstName.getText().trim().toString();
-            String middleName = txtMiddleName.getText().trim().toString();
-            String lastName = txtLastName.getText().trim().toString();
-            String studentEmail = txtStudentEmail.getText().trim().toString();
-            String courseID= txtCourseID.getText().trim().toString();
+            String testId = String.format(txtTestId.getText().trim().toString());
+            String subjectId = txtSubjectId.getText().trim().toString();
+            String testName = txtTestName.getText().trim().toString();
+            String testDate = txtTestDate.getText().trim().toString();
+            String duration = txtDuration.getText().trim().toString();
+            int resultsInPercent= Integer.parseInt(txtResultsInPercent.getText().trim().toString());
 
-            if(firstName.isEmpty() || middleName.isEmpty() || lastName.isEmpty() || studentEmail.isEmpty()
-                    || courseID.isEmpty() )
+            if(subjectId.isEmpty() || testName.isEmpty() || testDate.isEmpty() || duration.isEmpty()
+                    || resultsInPercent < 0)
             {
-                JOptionPane.showMessageDialog(null, "Please fill in all information to create a customer.");
+                JOptionPane.showMessageDialog(null, "Please fill in all information to create a Test.");
             }
             else {
-                Student updateStudent = StudentFactory.updateStudent(studentId,firstName,middleName,lastName,studentEmail,courseID);
+                TestModel updateTest = TestFactory.updateTest(testId,subjectId,testName,testDate,duration,resultsInPercent);
 
-                Student result = StudentHttpClient.update(updateStudent);
+                TestModel result = TestHttpClient.update(updateTest);
 
                 if (result != null) {
                     JOptionPane.showMessageDialog(null, "You have successfully updated your profile.");
 
-                    txtStudentId.setText("");
-                    txtFirstName.setText("");
-                    txtMiddleName.setText("");
-                    txtLastName.setText("");
-                    txtStudentEmail.setText("");
-                    txtCourseID.setText("");
+                    txtTestId.setText("");
+                    txtSubjectId.setText("");
+                    txtTestName.setText("");
+                    txtTestDate.setText("");
+                    txtDuration.setText("");
+                    txtResultsInPercent.setText("");
 
-                    txtStudentId.requestFocus();
+                    txtTestId.requestFocus();
                     setTextFieldToUneditable();
                 } else {
                     JOptionPane.showMessageDialog(null, "There was an error updating your profile.");
@@ -235,47 +235,50 @@ public class UpdateTest extends JFrame implements ActionListener
         }
         else if(e.getActionCommand().equals("Clear"))
         {
-            txtStudentId.setText("");
-            txtFirstName.setText("");
-            txtMiddleName.setText("");
-            txtLastName.setText("");
-            txtStudentEmail.setText("");
-            txtCourseID.setText("");
+            txtTestId.setText("");
+            txtSubjectId.setText("");
+            txtTestName.setText("");
+            txtTestDate.setText("");
+            txtDuration.setText("");
+            txtResultsInPercent.setText("");
 
-            txtStudentId.requestFocus();
+            txtTestId.requestFocus();
             setTextFieldToUneditable();
         }
         else if(e.getActionCommand().equals("Exit"))
         {
-            new StudentMenu().setGui();
+            new TestMenu().setGui();
             this.dispose();
         }
     }
 
     public void setTextFieldToUneditable()
     {
-        txtStudentId.setEnabled(true);
-        txtFirstName.setEnabled(false);
-        txtMiddleName.setEnabled(false);
-        txtLastName.setEnabled(false);
-        txtStudentEmail.setEnabled(false);
-        txtCourseID.setEnabled(false);
+        txtTestId.setEnabled(true);
+        txtSubjectId.setEnabled(false);
+        txtTestName.setEnabled(false);
+        txtTestDate.setEnabled(false);
+        txtDuration.setEnabled(false);
+        txtResultsInPercent.setEnabled(false);
 
     }
 
     public void setTextFieldToEditable()
     {
-        txtStudentId.setEnabled(false);
-        txtFirstName.setEnabled(true);
-        txtMiddleName.setEnabled(true);
-        txtLastName.setEnabled(true);
-        txtStudentEmail.setEnabled(true);
-        txtCourseID.setEnabled(true);
+
+
+        txtTestId.setEnabled(false);
+        txtSubjectId.setEnabled(true);
+        txtTestName.setEnabled(true);
+        txtTestDate.setEnabled(true);
+        txtDuration.setEnabled(true);
+        txtResultsInPercent.setEnabled(true);
     }
 
 
-    public static void main(String[] args) {
-        new za.ac.cput.views.student.UpdateStudent().setGui();
+    public static void main(String[] args)
+    {
+        new za.ac.cput.views.test.UpdateTest().setGui();
     }
 }
 
