@@ -11,12 +11,11 @@ public class SystemAdminFactory {
 
         String adminID = GenericHelper.generateID();
 
-        SystemAdmin systemAdmin = new SystemAdmin.Builder()
+        return new SystemAdmin.Builder()
                 .setAdminID(adminID)
                 .setAdminName(adminName)
                 .setAdminEmail(adminEmail)
                 .build();
-        return systemAdmin;
     }
     public static SystemAdmin updateSystemAdmin(String adminID , String adminName, String adminEmail)
     {
