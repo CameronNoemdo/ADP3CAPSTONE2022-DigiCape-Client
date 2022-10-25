@@ -1,8 +1,5 @@
 package za.ac.cput.entity;
 
-import javax.persistence.*;
-import java.util.List;
-
 /* Course.java
  Class for the Course entity
  Author: Mathew Fortuin -219069514

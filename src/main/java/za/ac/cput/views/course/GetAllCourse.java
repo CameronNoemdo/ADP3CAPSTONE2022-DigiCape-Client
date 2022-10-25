@@ -11,8 +11,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Set;
 
-import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
-
 
 /*
 GetAllCourse.java
@@ -89,6 +87,9 @@ public class GetAllCourse extends JFrame implements ActionListener {
 
         for(int i = 0; i < courseList.length; i++) //Create object array to add each row of data to the table
         {
+
+            model.addRow(rows);
+
             for(int k = 0; k < courseList.length - 1; k++) {
                 rows[k] = courseList[i].getCourseId();
                 rows[++k] = courseList[i].getCourseName();
@@ -96,7 +97,7 @@ public class GetAllCourse extends JFrame implements ActionListener {
                 rows[++k] = courseList[i].getDepartmentId();
 
 
-                model.addRow(rows);
+
             }
         }
 

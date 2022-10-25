@@ -11,9 +11,6 @@ import org.springframework.util.StringUtils;
 import za.ac.cput.entity.Course;
 import za.ac.cput.generic.GenericHelper;
 
-import java.util.Date;
-import java.util.LinkedList;
-
 public class CourseFactory
 {
     public static Course createCourse(String courseName,String courseDescription,String departmentId)

@@ -4,7 +4,6 @@ import za.ac.cput.client.SubjectHttpClient;
 import za.ac.cput.entity.Subject;
 import za.ac.cput.factory.SubjectFactory;
 import za.ac.cput.views.SubjectMenu;
-import za.ac.cput.views.subject.UpdateSubject;
 
 import javax.swing.*;
 import java.awt.*;

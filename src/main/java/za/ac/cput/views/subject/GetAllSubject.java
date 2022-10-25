@@ -1,10 +1,8 @@
 package za.ac.cput.views.subject;
 
 import za.ac.cput.client.SubjectHttpClient;
-import za.ac.cput.client.SubjectHttpClient;
 import za.ac.cput.entity.Subject;
 import za.ac.cput.views.SubjectMenu;
-import za.ac.cput.views.subject.GetAllSubject;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -81,6 +79,8 @@ public class GetAllSubject extends JFrame implements ActionListener {
 
         for(int i = 0; i < subjectList.length; i++) //Create object array to add each row of data to the table
         {
+            model.addRow(rows);
+
             for(int k = 0; k < subjectList.length - 1; k++) {
                 rows[k] = subjectList[i].getSubjectID();
                 rows[++k] = subjectList[i].getSubjectName();
@@ -88,7 +88,7 @@ public class GetAllSubject extends JFrame implements ActionListener {
                 rows[++k] = subjectList[i].getLecturerID();
 
 
-                model.addRow(rows);
+
             }
         }
 

@@ -1,14 +1,9 @@
 package za.ac.cput.views;
 
-import za.ac.cput.views.course.GetAllCourse;
-
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
 public class UserLogin extends JFrame implements ActionListener {

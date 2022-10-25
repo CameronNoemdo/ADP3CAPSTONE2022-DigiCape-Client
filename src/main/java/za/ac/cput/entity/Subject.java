@@ -1,7 +1,5 @@
 package za.ac.cput.entity;
 
-import javax.persistence.*;
-
 /* Subject.java
  Class for the subject entity
  Author: Mathew Fortuin -219069514

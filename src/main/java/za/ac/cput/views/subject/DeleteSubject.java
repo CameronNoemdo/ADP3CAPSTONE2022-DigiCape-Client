@@ -3,7 +3,6 @@ package za.ac.cput.views.subject;
 import za.ac.cput.client.SubjectHttpClient;
 import za.ac.cput.entity.Subject;
 import za.ac.cput.views.SubjectMenu;
-import za.ac.cput.views.subject.DeleteSubject;
 
 import javax.swing.*;
 import java.awt.*;

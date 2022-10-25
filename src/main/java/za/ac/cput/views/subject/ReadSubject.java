@@ -1,11 +1,8 @@
 package za.ac.cput.views.subject;
 
-import za.ac.cput.client.CourseHttpClient;
 import za.ac.cput.client.SubjectHttpClient;
 import za.ac.cput.entity.Subject;
-import za.ac.cput.views.CourseMenu;
 import za.ac.cput.views.SubjectMenu;
-import za.ac.cput.views.subject.ReadSubject;
 
 import javax.swing.*;
 import java.awt.*;
