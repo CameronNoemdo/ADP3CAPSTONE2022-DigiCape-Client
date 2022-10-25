@@ -129,24 +129,25 @@ public class DeleteSystemAdmin extends JFrame implements ActionListener {
         this.pack();
         this.setSize(640, 280);
         this.setVisible(true);
+        setLocationRelativeTo(null);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("Read"))
         {
-            String adminID = txtAdminId.getText().trim().toString();
+            String adminId = txtAdminId.getText().trim();
 
-            if(adminID == null)
+            if(adminId == null)
             {
                 JOptionPane.showMessageDialog(null, "Please enter a valid ID.");
             }
             else{
-                SystemAdmin result = SystemAdminHttpClient.read(adminID);
+                SystemAdmin result = SystemAdminHttpClient.read(adminId);
 
                 if(result != null)
                 {
-                    JOptionPane.showMessageDialog(null, "System Admin exist with ID of: " + adminID);
+                    JOptionPane.showMessageDialog(null, "System Admin exist with ID of: " + adminId);
 
                     txtAdminId.setEnabled(false);
                     lblName1.setText(result.getAdminName());
@@ -154,16 +155,17 @@ public class DeleteSystemAdmin extends JFrame implements ActionListener {
 
                 }
                 else {
-                    JOptionPane.showMessageDialog(null, "No System Admin exists with ID of: " + adminID);
+                    JOptionPane.showMessageDialog(null, "No System Admin exists with ID of: " + adminId);
                 }
             }
         }
         else if(e.getActionCommand().equals("Delete"))
         {
-            String delete = txtAdminId.getText().trim().toString();
+            String id = txtAdminId.getText().trim();
 
-            SystemAdminHttpClient.delete(delete);
-            JOptionPane.showMessageDialog(null, "The staff with ID of: " + delete + " was deleted.");
+            SystemAdminHttpClient.delete(id);
+
+            JOptionPane.showMessageDialog(null, " ID of: " + id + " was deleted.");
 
             txtAdminId.setText("");
             lblName1.setText("");
@@ -192,6 +194,3 @@ public class DeleteSystemAdmin extends JFrame implements ActionListener {
         new DeleteSystemAdmin().setGui();
     }
 }
-
-
-

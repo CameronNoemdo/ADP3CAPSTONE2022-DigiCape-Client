@@ -122,6 +122,7 @@ public class ReadSystemAdmin extends JFrame implements ActionListener {
         this.pack();
         this.setSize(640, 240);
         this.setVisible(true);
+        setLocationRelativeTo(null);
     }
 
     @Override
@@ -168,5 +169,4 @@ public class ReadSystemAdmin extends JFrame implements ActionListener {
         new ReadSystemAdmin().setGui();
     }
 }
-
 
