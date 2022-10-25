@@ -35,7 +35,7 @@ public class GetAllSystemAdmins extends JFrame implements ActionListener {
         centerPanel = new JPanel();
         southPanel = new JPanel();
 
-        lblHeading = new JLabel("Read System Admin", SwingConstants.CENTER);
+        lblHeading = new JLabel("Get All System Admins", SwingConstants.CENTER);
 
         btnExit = new JButton("Exit");
 
@@ -80,9 +80,12 @@ public class GetAllSystemAdmins extends JFrame implements ActionListener {
                     rows[++k] = adminList[i].getAdminName();
                     rows[++k] = adminList[i].getAdminEmail();
 
-                    model.addRow(rows);
+
                 }
+                model.addRow(rows);
             }
+
+
 
         }
 
