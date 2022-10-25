@@ -23,10 +23,9 @@ public class GetAllSystemAdmins extends JFrame implements ActionListener {
     private JTable table;
     private DefaultTableModel model;
     private JScrollPane sPane;
-    String[] adminAttributes = {"SystemAdminID", "Admin_Name", "Admin_Email"};
-    SystemAdmin[] adminList = new SystemAdmin[adminAttributes.length];
+    String[] adminAttributes = {"Id", "Name", "Email"};
+    SystemAdmin[] adminList;
 
-    private Set<SystemAdmin> systemAdmin;
 
     public GetAllSystemAdmins()
     {
@@ -36,7 +35,7 @@ public class GetAllSystemAdmins extends JFrame implements ActionListener {
         centerPanel = new JPanel();
         southPanel = new JPanel();
 
-        lblHeading = new JLabel("Read System Admin", SwingConstants.CENTER);
+        lblHeading = new JLabel("Get All System Admins", SwingConstants.CENTER);
 
         btnExit = new JButton("Exit");
 
@@ -63,37 +62,37 @@ public class GetAllSystemAdmins extends JFrame implements ActionListener {
         table = new JTable();
         model = (DefaultTableModel) table.getModel();
 
-        //Get list of staff
-        systemAdmin = SystemAdminHttpClient.getAll();
+        Set<SystemAdmin> systemAdminSet = SystemAdminHttpClient.getAll();
 
-        //Add column names to the table
-        for (String column : adminAttributes)
-        {
+        for (String column : adminAttributes) {
             model.addColumn(column);
         }
 
-        //Add the rows to the table
-        adminList = SystemAdminHttpClient.rows(); //
+        adminList = SystemAdminHttpClient.rows();
 
-        Object[] rows = new Object[adminAttributes.length];
+        Object[] rows = new Object[100];
 
-        for(int i = 0; i < adminList.length; i++) //Create object array to add each row of data to the table
+        for (int i = 0; i < adminList.length; i++) //Create object array to add each row of data to the table
         {
-            for(int k = 0; k < adminList.length - 1; k++) {
-                rows[k] = adminList[i].getAdminID();
-                rows[++k] = adminList[i].getAdminName();
-                rows[++k] = adminList[i].getAdminEmail();
+            {
+                for (int k = 0; k < adminList.length - 1; k++) {
+                    rows[k] = adminList[i].getAdminId();
+                    rows[++k] = adminList[i].getAdminName();
+                    rows[++k] = adminList[i].getAdminEmail();
 
+
+                }
                 model.addRow(rows);
             }
+
+
+
         }
 
-        //Set column width
-        table.getColumnModel().getColumn(0).setPreferredWidth(400);
-        table.getColumnModel().getColumn(1).setPreferredWidth(400);
+        table.getColumnModel().getColumn(0).setPreferredWidth(500);
+        table.getColumnModel().getColumn(1).setPreferredWidth(200);
         table.getColumnModel().getColumn(2).setPreferredWidth(200);
 
-        //Add table to scroll pane
         sPane = new JScrollPane(table);
     }
 
@@ -137,6 +136,7 @@ public class GetAllSystemAdmins extends JFrame implements ActionListener {
         this.pack();
         this.setSize(860, 440);
         this.setVisible(true);
+        setLocationRelativeTo(null);
     }
 
     @Override
@@ -152,4 +152,3 @@ public class GetAllSystemAdmins extends JFrame implements ActionListener {
         new GetAllSystemAdmins().setGui();
     }
 }
-

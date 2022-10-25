@@ -132,6 +132,7 @@ public class UpdateSystemAdmin extends JFrame implements ActionListener {
         this.pack();
         this.setSize(640, 280);
         this.setVisible(true);
+        setLocationRelativeTo(null);
     }
 
     @Override
@@ -165,9 +166,9 @@ public class UpdateSystemAdmin extends JFrame implements ActionListener {
         }
         else if(e.getActionCommand().equals("Update"))
         {
-            String adminId = txtAdminId.getText().trim().toString();
-            String adminName = txtName.getText().trim().toString();
-            String AdminEmail = txtEmail.getText().trim().toString();
+            String adminId = txtAdminId.getText().trim();
+            String adminName = txtName.getText().trim();
+            String AdminEmail = txtEmail.getText().trim();
 
             if(adminName.isEmpty() || AdminEmail.isEmpty())
             {

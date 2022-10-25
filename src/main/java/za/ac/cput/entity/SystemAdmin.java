@@ -5,7 +5,7 @@ package za.ac.cput.entity;
 
 @SuppressWarnings("unused")
 public class SystemAdmin {
-    private String adminID;
+    private String adminId;
     private String adminName;
     private String adminEmail;
 
@@ -14,7 +14,7 @@ public class SystemAdmin {
     protected SystemAdmin() {}
 
     public SystemAdmin(Builder builder) {
-        this.adminID = builder.adminID;
+        this.adminId = builder.adminId;
         this.adminName = builder.adminName;
         this.adminEmail = builder.adminEmail;
     }
@@ -22,8 +22,8 @@ public class SystemAdmin {
 
 
 
-    public String getAdminID() {
-        return adminID;
+    public String getAdminId() {
+        return adminId;
     }
 
     public String getAdminName() {
@@ -34,14 +34,26 @@ public class SystemAdmin {
         return adminEmail;
     }
 
+    public void setAdminId(String adminId) {
+        this.adminId = adminId;
+    }
+
+    public void setAdminName(String adminName) {
+        this.adminName = adminName;
+    }
+
+    public void setAdminEmail(String adminEmail) {
+        this.adminEmail = adminEmail;
+    }
+
     public static class Builder {
-        private String adminID;
+        private String adminId;
         private String adminName;
         private String adminEmail;
 
 
-        public Builder setAdminID(String adminID) {
-            this.adminID = adminID;
+        public Builder setAdminId(String adminId) {
+            this.adminId = adminId;
             return this;
         }
 
@@ -56,7 +68,7 @@ public class SystemAdmin {
 
         }
         public Builder copy(SystemAdmin systemAdmin){
-            this.adminID = systemAdmin.adminID;
+            this.adminId = systemAdmin.adminId;
             this.adminName = systemAdmin.adminName;
             this.adminEmail = systemAdmin.adminEmail;
             return this;
@@ -77,7 +89,7 @@ public class SystemAdmin {
     @Override
     public String toString() {
         return "SystemAdmin{" +
-                "adminID='" + adminID + '\'' +
+                "adminID='" + adminId + '\'' +
                 ", adminName='" + adminName + '\'' +
                 ", adminEmail='" + adminEmail + '\'' +
                 '}';

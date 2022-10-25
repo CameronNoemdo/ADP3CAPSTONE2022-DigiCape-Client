@@ -5,17 +5,18 @@ import org.springframework.http.*;
 import org.springframework.web.client.RestTemplate;
 import za.ac.cput.entity.SystemAdmin;
 
+
 import java.util.Set;
 
 public class SystemAdminHttpClient {
 
-    private static RestTemplate restTemplate = new RestTemplate();
+    private static final RestTemplate restTemplate = new RestTemplate();
 
     private final static String CREATE_URL = "http://localhost:8080/systemAdmin/create";
     private final static String READ_URL = "http://localhost:8080/systemAdmin/read";
     private final static String UPDATE_URL = "http://localhost:8080/systemAdmin/update";
     private final static String DELETE_URL = "http://localhost:8080/systemAdmin/delete";
-    private final static String GET_ALL_URL = "http://localhost:8080/systemAdmin/getAll";
+    private final static String GET_ALL_URL = "http://localhost:8080/systemAdmin/getall";
 
     public static SystemAdmin create(SystemAdmin studentAdmin)
     {
@@ -61,17 +62,14 @@ public class SystemAdminHttpClient {
         restTemplate.delete(pathURL);
     }
 
-    public static Set<SystemAdmin> getAll()
-    {
+    public static Set<SystemAdmin> getAll() {
         HttpHeaders headers = new HttpHeaders();
         HttpEntity<String> entity = new HttpEntity(null, headers);
-        ResponseEntity<Set<SystemAdmin>> response = restTemplate.exchange(GET_ALL_URL, HttpMethod.GET, entity, new ParameterizedTypeReference<Set<SystemAdmin>>() {});
+        ResponseEntity<Set<SystemAdmin>> response = restTemplate.exchange(GET_ALL_URL, HttpMethod.GET, entity, new ParameterizedTypeReference<Set<SystemAdmin>>(){});
 
-        if(response.getStatusCode().equals(HttpStatus.OK))
-        {
+        if(response.getStatusCode().equals(HttpStatus.OK)) {
             return response.getBody();
         }
-
         return null;
     }
 
@@ -79,20 +77,18 @@ public class SystemAdminHttpClient {
     {
         int i = 0;
         Set<SystemAdmin> systemAdminSet = getAll();
-        SystemAdmin[] systemAdmin = new SystemAdmin[systemAdminSet.size()];
+        SystemAdmin[] systemAdminArray = new SystemAdmin[systemAdminSet.size()];
 
-        for(SystemAdmin s : systemAdminSet)
+        for(SystemAdmin systemAdmin : systemAdminSet)
         {
-            if(s != null)
+            if(systemAdmin != null)
             {
-                systemAdmin[i] = s;
+                systemAdminArray[i] = systemAdmin;
                 i++;
             }
         }
 
-        return systemAdmin;
+        return systemAdminArray;
     }
 }
-
-
 

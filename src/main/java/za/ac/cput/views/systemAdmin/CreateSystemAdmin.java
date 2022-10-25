@@ -125,6 +125,7 @@ public class CreateSystemAdmin extends JFrame implements ActionListener {
         this.pack();
         this.setSize(640, 280);
         this.setVisible(true);
+        setLocationRelativeTo(null);
     }
 
     @Override
