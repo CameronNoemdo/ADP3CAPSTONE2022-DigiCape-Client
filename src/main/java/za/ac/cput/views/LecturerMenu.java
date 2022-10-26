@@ -1,5 +1,11 @@
 package za.ac.cput.views;
 
+/*
+Student name: Cameron Henry Noemdo
+Student number: 219115443
+DigiCape-Client
+ */
+
 import za.ac.cput.views.lecturer.*;
 
 import javax.swing.*;
@@ -109,8 +115,9 @@ public class LecturerMenu extends JFrame implements ActionListener {
 
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.pack();
-        this.setSize(640, 280);
+        this.setSize(440, 280);
         this.setVisible(true);
+        this.setLocationRelativeTo(null);
     }
 
     @Override
@@ -131,7 +138,8 @@ public class LecturerMenu extends JFrame implements ActionListener {
             new GetAllLecturer().setGui();
             this.dispose();
         } else if(e.getActionCommand().equals("Exit")) {
-            System.exit(0);
+            new AdminMenu().setGui();
+            this.dispose();
         }
     }
 

@@ -1,5 +1,11 @@
 package za.ac.cput.factory;
 
+/*
+Student name: Cameron Henry Noemdo
+Student number: 219115443
+DigiCape-Client
+ */
+
 import za.ac.cput.entity.Lecturer;
 import za.ac.cput.generic.GenericHelper;
 

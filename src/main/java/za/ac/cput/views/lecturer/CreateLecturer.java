@@ -1,5 +1,11 @@
 package za.ac.cput.views.lecturer;
 
+/*
+Student name: Cameron Henry Noemdo
+Student number: 219115443
+DigiCape-Client
+ */
+
 import za.ac.cput.client.LecturerHttpClient;
 import za.ac.cput.entity.Lecturer;
 import za.ac.cput.factory.LecturerFactory;
@@ -17,7 +23,7 @@ public class CreateLecturer extends JFrame implements ActionListener {
     private final JTextField txtFirstName, txtMiddleName, txtLastName, txtLecturerEmail, txtDepartmentId;
     private final JButton btnCreate, btnExit;
     private final Font ftHeading, ftText, ftTextBold;
-    private final JLabel emptySpace1, emptySpace2, emptySpace3, emptySpace4, emptySpace5, emptySpace6, emptySpace7, emptySpace8;
+    private final JLabel emptySpace1, emptySpace2, emptySpace3, emptySpace4, emptySpace5, emptySpace6;
 
     public CreateLecturer() {
         super("Create Lecturer");
@@ -55,14 +61,12 @@ public class CreateLecturer extends JFrame implements ActionListener {
         emptySpace4 = new JLabel();
         emptySpace5 = new JLabel();
         emptySpace6 = new JLabel();
-        emptySpace7 = new JLabel();
-        emptySpace8 = new JLabel();
     }
 
     public void setGui() {
         northPanel.setLayout(new FlowLayout());
-        centerPanel.setLayout(new GridLayout(8, 3));
-        southPanel.setLayout(new GridLayout(2, 2));
+        centerPanel.setLayout(new GridLayout(7, 3));
+        southPanel.setLayout(new GridLayout(1, 2));
 
         lblHeading.setFont(ftHeading);
 
@@ -109,8 +113,6 @@ public class CreateLecturer extends JFrame implements ActionListener {
         centerPanel.add(txtDepartmentId);
         centerPanel.add(emptySpace6);
 
-        southPanel.add(emptySpace7);
-        southPanel.add(emptySpace8);
         southPanel.add(btnCreate);
         southPanel.add(btnExit);
 
@@ -123,8 +125,9 @@ public class CreateLecturer extends JFrame implements ActionListener {
 
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.pack();
-        this.setSize(640, 420);
+        this.setSize(600, 320);
         this.setVisible(true);
+        this.setLocationRelativeTo(null);
     }
 
     @Override

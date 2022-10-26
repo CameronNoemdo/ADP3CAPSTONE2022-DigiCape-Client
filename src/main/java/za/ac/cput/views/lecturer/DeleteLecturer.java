@@ -1,5 +1,11 @@
 package za.ac.cput.views.lecturer;
 
+/*
+Student name: Cameron Henry Noemdo
+Student number: 219115443
+DigiCape-Client
+ */
+
 import za.ac.cput.client.LecturerHttpClient;
 import za.ac.cput.entity.Lecturer;
 import za.ac.cput.views.LecturerMenu;
@@ -40,10 +46,6 @@ public class DeleteLecturer extends JFrame implements ActionListener {
     private final JLabel emptySpace4;
     private final JLabel emptySpace5;
     private final JLabel emptySpace6;
-    private final JLabel emptySpace10;
-    private final JLabel emptySpace11;
-    private final JLabel emptySpace12;
-    private final JLabel emptySpace13;
 
     public DeleteLecturer() {
         super("Delete Lecturer");
@@ -82,16 +84,12 @@ public class DeleteLecturer extends JFrame implements ActionListener {
         emptySpace4 = new JLabel();
         emptySpace5 = new JLabel();
         emptySpace6 = new JLabel();
-        emptySpace10 = new JLabel();
-        emptySpace11 = new JLabel();
-        emptySpace12 = new JLabel();
-        emptySpace13 = new JLabel();
     }
 
     public void setGui() {
         northPanel.setLayout(new FlowLayout());
         centerPanel.setLayout(new GridLayout(7, 3));
-        southPanel.setLayout(new GridLayout(2, 4));
+        southPanel.setLayout(new GridLayout(1, 4));
 
         lblHeading.setFont(ftHeading);
 
@@ -138,10 +136,6 @@ public class DeleteLecturer extends JFrame implements ActionListener {
         centerPanel.add(lblViewDepartmentId);
         centerPanel.add(emptySpace6);
 
-        southPanel.add(emptySpace10);
-        southPanel.add(emptySpace11);
-        southPanel.add(emptySpace12);
-        southPanel.add(emptySpace13);
         southPanel.add(btnRead);
         southPanel.add(btnDelete);
         southPanel.add(btnClear);
@@ -160,6 +154,7 @@ public class DeleteLecturer extends JFrame implements ActionListener {
         this.pack();
         this.setSize(640, 320);
         this.setVisible(true);
+        this.setLocationRelativeTo(null);
     }
 
     @Override

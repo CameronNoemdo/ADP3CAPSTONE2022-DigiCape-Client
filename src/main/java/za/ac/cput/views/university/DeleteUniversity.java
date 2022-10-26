@@ -1,5 +1,11 @@
 package za.ac.cput.views.university;
 
+/*
+Student name: Cameron Henry Noemdo
+Student number: 219115443
+DigiCape-Client
+ */
+
 import za.ac.cput.client.UniversityHttpClient;
 import za.ac.cput.entity.University;
 import za.ac.cput.views.UniversityMenu;
@@ -16,7 +22,7 @@ public class DeleteUniversity extends JFrame implements ActionListener {
     private final JTextField txtUniId;
     private final JButton btnRead, btnClear, btnExit, btnDelete;
     private final Font ftHeading, ftText, ftTextBold;
-    private final JLabel emptySpace5;
+    private final JLabel emptySpace5,emptySpace6,emptySpace7;
 
     public DeleteUniversity() {
         super("Delete University");
@@ -44,11 +50,13 @@ public class DeleteUniversity extends JFrame implements ActionListener {
         ftTextBold = new Font("Arial", Font.BOLD, 12);
 
         emptySpace5 = new JLabel();
+        emptySpace6 = new JLabel();
+        emptySpace7 = new JLabel();
     }
 
     public void setGui() {
         northPanel.setLayout(new FlowLayout());
-        centerPanel.setLayout(new GridLayout(4, 2));
+        centerPanel.setLayout(new GridLayout(4,3));
         southPanel.setLayout(new GridLayout(1, 4));
 
         lblHeading.setFont(ftHeading);
@@ -70,13 +78,15 @@ public class DeleteUniversity extends JFrame implements ActionListener {
 
         centerPanel.add(lblUniId);
         centerPanel.add(txtUniId);
+        centerPanel.add(emptySpace5);
 
         centerPanel.add(lblUniName);
         centerPanel.add(lblViewUniName);
+        centerPanel.add(emptySpace6);
 
         centerPanel.add(lblUniEmail);
         centerPanel.add(lblViewUniEmail);
-        centerPanel.add(emptySpace5);
+        centerPanel.add(emptySpace7);
 
         southPanel.add(btnRead);
         southPanel.add(btnDelete);
@@ -96,6 +106,7 @@ public class DeleteUniversity extends JFrame implements ActionListener {
         this.pack();
         this.setSize(640, 220);
         this.setVisible(true);
+        this.setLocationRelativeTo(null);
     }
 
 

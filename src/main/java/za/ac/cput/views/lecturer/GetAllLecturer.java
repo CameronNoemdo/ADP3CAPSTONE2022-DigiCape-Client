@@ -1,5 +1,11 @@
 package za.ac.cput.views.lecturer;
 
+/*
+Student name: Cameron Henry Noemdo
+Student number: 219115443
+DigiCape-Client
+ */
+
 import za.ac.cput.client.LecturerHttpClient;
 import za.ac.cput.entity.Lecturer;
 import za.ac.cput.views.LecturerMenu;
@@ -72,7 +78,7 @@ public class GetAllLecturer extends JFrame implements ActionListener {
         table.getColumnModel().getColumn(1).setPreferredWidth(200);
         table.getColumnModel().getColumn(2).setPreferredWidth(200);
         table.getColumnModel().getColumn(3).setPreferredWidth(200);
-        table.getColumnModel().getColumn(4).setPreferredWidth(300);
+        table.getColumnModel().getColumn(4).setPreferredWidth(350);
         table.getColumnModel().getColumn(5).setPreferredWidth(200);
 
         table.setAutoCreateRowSorter(true);
@@ -108,8 +114,9 @@ public class GetAllLecturer extends JFrame implements ActionListener {
 
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.pack();
-        this.setSize(860, 440);
+        this.setSize(900, 440);
         this.setVisible(true);
+        this.setLocationRelativeTo(null);
     }
 
     @Override

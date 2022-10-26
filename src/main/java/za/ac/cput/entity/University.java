@@ -1,5 +1,11 @@
 package za.ac.cput.entity;
 
+/*
+Student name: Cameron Henry Noemdo
+Student number: 219115443
+DigiCape-Client
+ */
+
 public class University {
     private String universityId, universityName, email;
 

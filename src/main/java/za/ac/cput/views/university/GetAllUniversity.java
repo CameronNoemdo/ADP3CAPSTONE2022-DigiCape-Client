@@ -1,5 +1,11 @@
 package za.ac.cput.views.university;
 
+/*
+Student name: Cameron Henry Noemdo
+Student number: 219115443
+DigiCape-Client
+ */
+
 import za.ac.cput.client.UniversityHttpClient;
 import za.ac.cput.entity.University;
 import za.ac.cput.views.UniversityMenu;
@@ -63,9 +69,8 @@ public class GetAllUniversity extends JFrame implements ActionListener {
                     rows[k] = universityArray[i].getUniversityId();
                     rows[++k] = universityArray[i].getUniversityName();
                     rows[++k] = universityArray[i].getEmail();
-
-                    model.addRow(rows);
                 }
+                model.addRow(rows);
             }
 
         }
@@ -105,8 +110,9 @@ public class GetAllUniversity extends JFrame implements ActionListener {
 
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.pack();
-        this.setSize(860, 440);
+        this.setSize(560, 440);
         this.setVisible(true);
+        this.setLocationRelativeTo(null);
     }
 
     @Override
