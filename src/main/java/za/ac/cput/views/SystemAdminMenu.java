@@ -125,6 +125,7 @@ public class SystemAdminMenu extends JFrame implements ActionListener {
         this.pack();
         this.setSize(640, 280);
         this.setVisible(true);
+        this.setLocationRelativeTo(null);
     }
 
     @Override
