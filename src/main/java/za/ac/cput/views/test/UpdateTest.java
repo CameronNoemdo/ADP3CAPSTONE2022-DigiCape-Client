@@ -171,7 +171,7 @@ public class UpdateTest extends JFrame implements ActionListener
         {
             String studentId = String.format(txtTestId.getText().trim().toString());
 
-            if(studentId != "")
+            if(studentId.isEmpty())
             {
                 JOptionPane.showMessageDialog(null, "Please enter a valid ID.");
             }
