@@ -75,7 +75,7 @@ public class GetAllSystemAdmins extends JFrame implements ActionListener {
         for (int i = 0; i < adminList.length; i++) //Create object array to add each row of data to the table
         {
             {
-                for (int k = 0; k < adminList.length - 1; k++) {
+                for (int k = 0; k < adminList.length; k++) {
                     rows[k] = adminList[i].getAdminId();
                     rows[++k] = adminList[i].getAdminName();
                     rows[++k] = adminList[i].getAdminEmail();

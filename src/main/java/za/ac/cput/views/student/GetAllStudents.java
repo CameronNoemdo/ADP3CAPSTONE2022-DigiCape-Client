@@ -80,7 +80,7 @@ public class GetAllStudents extends JFrame implements ActionListener
 
         for(int i = 0; i < studentList.length; i++) //Create object array to add each row of data to the table
         {
-            for(int k = 0; k < studentList.length - 1; k++) {
+            for(int k = 0; k < studentList.length; k++) {
                 rows[k] = studentList[i].getStudentId();
                 rows[++k] = studentList[i].getFirstName();
                 rows[++k] = studentList[i].getMiddleName();

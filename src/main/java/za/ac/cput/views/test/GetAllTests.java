@@ -80,7 +80,7 @@ public class GetAllTests extends JFrame implements ActionListener
 
         for(int i = 0; i < testModelList.length; i++) //Create object array to add each row of data to the table
         {
-            for(int k = 0; k < testModelList.length - 1; k++) {
+            for(int k = 0; k < testModelList.length; k++) {
                 rows[k] = testModelList[i].getTestId();
                 rows[++k] = testModelList[i].getSubjectId();
                 rows[++k] = testModelList[i].getTestName();
