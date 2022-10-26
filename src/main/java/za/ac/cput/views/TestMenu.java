@@ -153,7 +153,8 @@ public class TestMenu extends JFrame implements ActionListener
         }
         else if(e.getActionCommand().equals("Exit"))
         {
-            System.exit(0);
+            new AdminMenu().setGui();
+            this.dispose();
         }
     }
 
