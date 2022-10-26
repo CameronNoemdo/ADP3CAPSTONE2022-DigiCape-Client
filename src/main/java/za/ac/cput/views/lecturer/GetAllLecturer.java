@@ -72,7 +72,7 @@ public class GetAllLecturer extends JFrame implements ActionListener {
         table.getColumnModel().getColumn(1).setPreferredWidth(200);
         table.getColumnModel().getColumn(2).setPreferredWidth(200);
         table.getColumnModel().getColumn(3).setPreferredWidth(200);
-        table.getColumnModel().getColumn(4).setPreferredWidth(300);
+        table.getColumnModel().getColumn(4).setPreferredWidth(350);
         table.getColumnModel().getColumn(5).setPreferredWidth(200);
 
         table.setAutoCreateRowSorter(true);
@@ -108,8 +108,9 @@ public class GetAllLecturer extends JFrame implements ActionListener {
 
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.pack();
-        this.setSize(860, 440);
+        this.setSize(900, 440);
         this.setVisible(true);
+        this.setLocationRelativeTo(null);
     }
 
     @Override

@@ -17,7 +17,7 @@ public class ReadLecturer extends JFrame implements ActionListener {
     private final JTextField txtLecturerId;
     private final JButton btnRead, btnClear, btnExit;
     private final Font ftHeading, ftText, ftTextBold;
-    private final JLabel emptySpace1, emptySpace2, emptySpace3, emptySpace4, emptySpace5, emptySpace6, emptySpace7, emptySpace8, emptySpace9;
+    private final JLabel emptySpace1, emptySpace2, emptySpace3, emptySpace4, emptySpace5, emptySpace6;
 
     public ReadLecturer() {
         super("Read Lecturer");
@@ -55,15 +55,12 @@ public class ReadLecturer extends JFrame implements ActionListener {
         emptySpace4 = new JLabel();
         emptySpace5 = new JLabel();
         emptySpace6 = new JLabel();
-        emptySpace7 = new JLabel();
-        emptySpace8 = new JLabel();
-        emptySpace9 = new JLabel();
     }
 
     public void setGui() {
         northPanel.setLayout(new FlowLayout());
-        centerPanel.setLayout(new GridLayout(8, 3));
-        southPanel.setLayout(new GridLayout(2, 3));
+        centerPanel.setLayout(new GridLayout(7, 3));
+        southPanel.setLayout(new GridLayout(1, 3));
 
         lblHeading.setFont(ftHeading);
 
@@ -110,9 +107,6 @@ public class ReadLecturer extends JFrame implements ActionListener {
         centerPanel.add(lblViewDepartmentId);
         centerPanel.add(emptySpace6);
 
-        southPanel.add(emptySpace7);
-        southPanel.add(emptySpace8);
-        southPanel.add(emptySpace9);
         southPanel.add(btnRead);
         southPanel.add(btnClear);
         southPanel.add(btnExit);
@@ -127,8 +121,9 @@ public class ReadLecturer extends JFrame implements ActionListener {
 
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.pack();
-        this.setSize(640, 420);
+        this.setSize(600, 320);
         this.setVisible(true);
+        this.setLocationRelativeTo(null);
     }
 
     @Override

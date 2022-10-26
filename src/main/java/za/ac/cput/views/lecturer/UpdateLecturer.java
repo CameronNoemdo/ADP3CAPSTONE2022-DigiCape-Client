@@ -15,7 +15,6 @@ public class UpdateLecturer extends JFrame implements ActionListener {
     private final JPanel northPanel;
     private final JPanel centerPanel;
     private final JPanel southPanel;
-    private final JPanel radioPanel;
     private final JLabel lblHeading;
     private final JLabel lblLecturerId;
     private final JLabel lblFirstName;
@@ -42,10 +41,6 @@ public class UpdateLecturer extends JFrame implements ActionListener {
     private final JLabel emptySpace4;
     private final JLabel emptySpace5;
     private final JLabel emptySpace6;
-    private final JLabel emptySpace10;
-    private final JLabel emptySpace11;
-    private final JLabel emptySpace12;
-    private final JLabel emptySpace13;
 
     public UpdateLecturer() {
         super("Update Lecturer");
@@ -53,7 +48,6 @@ public class UpdateLecturer extends JFrame implements ActionListener {
         northPanel = new JPanel();
         centerPanel = new JPanel();
         southPanel = new JPanel();
-        radioPanel = new JPanel();
 
         lblHeading = new JLabel("Update Lecturer", SwingConstants.CENTER);
         lblLecturerId = new JLabel("Lecturer ID: ", SwingConstants.RIGHT);
@@ -86,10 +80,6 @@ public class UpdateLecturer extends JFrame implements ActionListener {
         emptySpace4 = new JLabel();
         emptySpace5 = new JLabel();
         emptySpace6 = new JLabel();
-        emptySpace10 = new JLabel();
-        emptySpace11 = new JLabel();
-        emptySpace12 = new JLabel();
-        emptySpace13 = new JLabel();
 
         setTextFieldToUneditable();
     }
@@ -97,9 +87,8 @@ public class UpdateLecturer extends JFrame implements ActionListener {
 
     public void setGui() {
         northPanel.setLayout(new FlowLayout());
-        centerPanel.setLayout(new GridLayout(8, 3));
-        southPanel.setLayout(new GridLayout(2, 4));
-        radioPanel.setLayout(new GridLayout(1, 2));
+        centerPanel.setLayout(new GridLayout(7, 3));
+        southPanel.setLayout(new GridLayout(1, 4));
 
         lblHeading.setFont(ftHeading);
 
@@ -148,10 +137,6 @@ public class UpdateLecturer extends JFrame implements ActionListener {
         centerPanel.add(txtDepartmentId);
         centerPanel.add(emptySpace6);
 
-        southPanel.add(emptySpace10);
-        southPanel.add(emptySpace11);
-        southPanel.add(emptySpace12);
-        southPanel.add(emptySpace13);
         southPanel.add(btnRead);
         southPanel.add(btnUpdate);
         southPanel.add(btnClear);
@@ -168,8 +153,9 @@ public class UpdateLecturer extends JFrame implements ActionListener {
 
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.pack();
-        this.setSize(640, 420);
+        this.setSize(600, 320);
         this.setVisible(true);
+        this.setLocationRelativeTo(null);
     }
 
     @Override
