@@ -1,5 +1,11 @@
 package za.ac.cput.views;
 
+/*
+Student name: Cameron Henry Noemdo
+Student number: 219115443
+DigiCape-Client
+ */
+
 import za.ac.cput.views.university.*;
 
 import javax.swing.*;
