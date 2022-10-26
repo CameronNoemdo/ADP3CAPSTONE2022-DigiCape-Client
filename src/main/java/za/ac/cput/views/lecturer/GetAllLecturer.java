@@ -15,7 +15,6 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Set;
 
 public class GetAllLecturer extends JFrame implements ActionListener {
     private final JPanel northPanel, centerPanel, southPanel;
@@ -51,8 +50,6 @@ public class GetAllLecturer extends JFrame implements ActionListener {
         JTable table = new JTable();
         DefaultTableModel model = (DefaultTableModel) table.getModel();
 
-        Set<Lecturer> lecturerSet = LecturerHttpClient.getAll();
-
         for (String column : columnLecturerAttributes) {
             model.addColumn(column);
         }
@@ -61,9 +58,8 @@ public class GetAllLecturer extends JFrame implements ActionListener {
 
         Object[] rows = new Object[100];
 
-        for (int i = 0; i < lecturerArray.length; i++) //Create object array to add each row of data to the table
-        {
-            for (int k = 0; k < lecturerArray.length - 1; k++) {
+        for (int i = 0; i < lecturerArray.length; i++) {
+            for (int k = 0; k < lecturerArray.length; k++) {
                 rows[k] = lecturerArray[i].getLecturerId();
                 rows[++k] = lecturerArray[i].getFirstName();
                 rows[++k] = lecturerArray[i].getMiddleName();
