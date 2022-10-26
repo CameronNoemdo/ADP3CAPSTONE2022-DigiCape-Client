@@ -90,7 +90,7 @@ public class GetAllCourse extends JFrame implements ActionListener {
 
             model.addRow(rows);
 
-            for(int k = 0; k < courseList.length - 1; k++) {
+            for(int k = 0; k < courseList.length; k++) {
                 rows[k] = courseList[i].getCourseId();
                 rows[++k] = courseList[i].getCourseName();
                 rows[++k] = courseList[i].getCourseDescription();

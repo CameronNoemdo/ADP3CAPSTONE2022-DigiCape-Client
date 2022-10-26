@@ -81,7 +81,7 @@ public class GetAllSubject extends JFrame implements ActionListener {
         {
             model.addRow(rows);
 
-            for(int k = 0; k < subjectList.length - 1; k++) {
+            for(int k = 0; k < subjectList.length; k++) {
                 rows[k] = subjectList[i].getSubjectID();
                 rows[++k] = subjectList[i].getSubjectName();
                 rows[++k] = subjectList[i].getSubjectCredit();
