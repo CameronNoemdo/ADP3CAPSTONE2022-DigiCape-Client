@@ -15,7 +15,6 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Set;
 
 public class GetAllUniversity extends JFrame implements ActionListener {
     private final JPanel northPanel, centerPanel, southPanel;
@@ -52,8 +51,6 @@ public class GetAllUniversity extends JFrame implements ActionListener {
         JTable table = new JTable();
         DefaultTableModel model = (DefaultTableModel) table.getModel();
 
-        Set<University> universitySet = UniversityHttpClient.getAll();
-
         for (String column : columnUniversityAttributes) {
             model.addColumn(column);
         }
@@ -65,7 +62,7 @@ public class GetAllUniversity extends JFrame implements ActionListener {
         for (int i = 0; i < universityArray.length; i++) //Create object array to add each row of data to the table
         {
             {
-                for (int k = 0; k < universityArray.length - 1; k++) {
+                for (int k = 0; k < universityArray.length; k++) {
                     rows[k] = universityArray[i].getUniversityId();
                     rows[++k] = universityArray[i].getUniversityName();
                     rows[++k] = universityArray[i].getEmail();
