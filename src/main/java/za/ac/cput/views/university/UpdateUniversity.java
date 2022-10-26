@@ -15,7 +15,6 @@ public class UpdateUniversity extends JFrame implements ActionListener {
     private final JPanel northPanel;
     private final JPanel centerPanel;
     private final JPanel southPanel;
-    private final JPanel radioPanel;
     private final JLabel lblHeading;
     private final JLabel lblUniId;
     private final JLabel lblUniName;
@@ -33,10 +32,6 @@ public class UpdateUniversity extends JFrame implements ActionListener {
     private final JLabel emptySpace1;
     private final JLabel emptySpace2;
     private final JLabel emptySpace3;
-    private final JLabel emptySpace10;
-    private final JLabel emptySpace11;
-    private final JLabel emptySpace12;
-    private final JLabel emptySpace13;
 
     public UpdateUniversity() {
         super("Update University");
@@ -44,7 +39,6 @@ public class UpdateUniversity extends JFrame implements ActionListener {
         northPanel = new JPanel();
         centerPanel = new JPanel();
         southPanel = new JPanel();
-        radioPanel = new JPanel();
 
         lblHeading = new JLabel("Update University", SwingConstants.CENTER);
         lblUniId = new JLabel("University ID: ", SwingConstants.RIGHT);
@@ -68,10 +62,6 @@ public class UpdateUniversity extends JFrame implements ActionListener {
         emptySpace1 = new JLabel();
         emptySpace2 = new JLabel();
         emptySpace3 = new JLabel();
-        emptySpace10 = new JLabel();
-        emptySpace11 = new JLabel();
-        emptySpace12 = new JLabel();
-        emptySpace13 = new JLabel();
 
         setTextFieldToUneditable();
     }
@@ -80,8 +70,7 @@ public class UpdateUniversity extends JFrame implements ActionListener {
     public void setGui() {
         northPanel.setLayout(new FlowLayout());
         centerPanel.setLayout(new GridLayout(4, 3));
-        southPanel.setLayout(new GridLayout(2, 4));
-        radioPanel.setLayout(new GridLayout(1, 2));
+        southPanel.setLayout(new GridLayout(1, 4));
 
         lblHeading.setFont(ftHeading);
 
@@ -110,10 +99,6 @@ public class UpdateUniversity extends JFrame implements ActionListener {
         centerPanel.add(txtUniEmail);
         centerPanel.add(emptySpace3);
 
-        southPanel.add(emptySpace10);
-        southPanel.add(emptySpace11);
-        southPanel.add(emptySpace12);
-        southPanel.add(emptySpace13);
         southPanel.add(btnRead);
         southPanel.add(btnUpdate);
         southPanel.add(btnClear);
@@ -130,8 +115,9 @@ public class UpdateUniversity extends JFrame implements ActionListener {
 
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.pack();
-        this.setSize(640, 220);
+        this.setSize(540, 220);
         this.setVisible(true);
+        this.setLocationRelativeTo(null);
     }
 
     @Override

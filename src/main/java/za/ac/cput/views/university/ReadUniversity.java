@@ -17,7 +17,7 @@ public class ReadUniversity extends JFrame implements ActionListener {
     private final JTextField txtUniId;
     private final JButton btnRead, btnClear, btnExit;
     private final Font ftHeading, ftText, ftTextBold;
-    private final JLabel emptySpace1, emptySpace2, emptySpace5, emptySpace7, emptySpace8, emptySpace9;
+    private final JLabel emptySpace1, emptySpace2, emptySpace5;
 
     public ReadUniversity() {
         super("Read University");
@@ -46,15 +46,12 @@ public class ReadUniversity extends JFrame implements ActionListener {
         emptySpace1 = new JLabel();
         emptySpace2 = new JLabel();
         emptySpace5 = new JLabel();
-        emptySpace7 = new JLabel();
-        emptySpace8 = new JLabel();
-        emptySpace9 = new JLabel();
     }
 
     public void setGui() {
         northPanel.setLayout(new FlowLayout());
         centerPanel.setLayout(new GridLayout(4, 3));
-        southPanel.setLayout(new GridLayout(2, 4));
+        southPanel.setLayout(new GridLayout(1, 3));
 
         lblHeading.setFont(ftHeading);
 
@@ -83,9 +80,6 @@ public class ReadUniversity extends JFrame implements ActionListener {
         centerPanel.add(lblViewUniEmail);
         centerPanel.add(emptySpace5);
 
-        southPanel.add(emptySpace7);
-        southPanel.add(emptySpace8);
-        southPanel.add(emptySpace9);
         southPanel.add(btnRead);
         southPanel.add(btnClear);
         southPanel.add(btnExit);
@@ -100,8 +94,9 @@ public class ReadUniversity extends JFrame implements ActionListener {
 
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.pack();
-        this.setSize(640, 220);
+        this.setSize(540, 220);
         this.setVisible(true);
+        this.setLocationRelativeTo(null);
     }
 
     @Override

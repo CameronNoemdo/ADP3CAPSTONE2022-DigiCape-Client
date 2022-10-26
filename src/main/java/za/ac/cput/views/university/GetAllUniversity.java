@@ -63,9 +63,8 @@ public class GetAllUniversity extends JFrame implements ActionListener {
                     rows[k] = universityArray[i].getUniversityId();
                     rows[++k] = universityArray[i].getUniversityName();
                     rows[++k] = universityArray[i].getEmail();
-
-                    model.addRow(rows);
                 }
+                model.addRow(rows);
             }
 
         }
@@ -105,8 +104,9 @@ public class GetAllUniversity extends JFrame implements ActionListener {
 
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.pack();
-        this.setSize(860, 440);
+        this.setSize(560, 440);
         this.setVisible(true);
+        this.setLocationRelativeTo(null);
     }
 
     @Override

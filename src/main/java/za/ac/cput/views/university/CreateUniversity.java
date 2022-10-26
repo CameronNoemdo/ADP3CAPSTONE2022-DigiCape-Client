@@ -96,8 +96,9 @@ public class CreateUniversity extends JFrame implements ActionListener {
 
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.pack();
-        this.setSize(640, 220);
+        this.setSize(540, 220);
         this.setVisible(true);
+        this.setLocationRelativeTo(null);
     }
 
     @Override
